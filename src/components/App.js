@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 
 function App() {
   return (
     <div className="App">
+      <div>Hello</div>
        <Router>
         {/* <AuthProvider> */}
           <Routes>
