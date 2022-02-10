@@ -4,7 +4,6 @@ import Login from "./Login";
 function App() {
   return (
     <div style={{ fontFamily: 'Avenir' }}>
-      <Login/>
        <Router>
         {/* <AuthProvider> */}
           <Routes>

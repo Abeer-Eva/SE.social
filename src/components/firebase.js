@@ -1,8 +1,8 @@
-import firebase from "firebase";
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 
-export const auth = firebase.initializeApp({
+const auth = firebase.initializeApp({
     apiKey: "AIzaSyDuhOxB-ma81YCg5wCKKLiYZ-j6tRcmiHw",
     authDomain: "socialmedia-8386a.firebaseapp.com",
     projectId: "socialmedia-8386a",
@@ -10,3 +10,6 @@ export const auth = firebase.initializeApp({
     messagingSenderId: "17026714347",
     appId: "1:17026714347:web:dbf8245e84be80d93cccae"
   }).auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+ 
+export { auth, provider };
