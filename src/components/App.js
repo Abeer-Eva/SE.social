@@ -3,13 +3,13 @@ import Login from "./Login";
 
 function App() {
   return (
-    <div className="App">
-      <div>Hello</div>
+    <div style={{ fontFamily: 'Avenir' }}>
+      <Login/>
        <Router>
         {/* <AuthProvider> */}
           <Routes>
             {/* <Route path="/chats" component={Chats} />*/}
-            <Route path="/" component={Login} /> 
+            <Route path="/" element={<Login/>} /> 
           </Routes> 
         {/* </AuthProvider> */}
       </Router>
