@@ -16,7 +16,6 @@ const Login =() =>{
         <div id="login-page ">
             <div id="login-card">
                 <h2> Welcome</h2>
-<<<<<<< HEAD
                 <div className='login-button  google' onClick={()=> auth.signInWithRedirect(new provider)}>
                     <GoogleOutlined/> SIgn in with google
                 </div>
@@ -25,9 +24,6 @@ const Login =() =>{
                 <div className='login-button  facebook'>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
-=======
-                <p>sarah testar</p>
->>>>>>> 7478d326c2b547d4cbcb3b95df0af89801ef791a
             </div>
         </div>
     );
