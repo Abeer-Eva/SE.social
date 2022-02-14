@@ -1,6 +1,6 @@
 import * as firebase from 'firebase/app';
-import 'firebase/auth';
-
+import "firebase/auth";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
 const auth = firebase.initializeApp({
     apiKey: "AIzaSyDuhOxB-ma81YCg5wCKKLiYZ-j6tRcmiHw",
@@ -10,6 +10,6 @@ const auth = firebase.initializeApp({
     messagingSenderId: "17026714347",
     appId: "1:17026714347:web:dbf8245e84be80d93cccae"
   }).auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
- 
+  const provider = new GoogleAuthProvider();
+
 export { auth, provider };
