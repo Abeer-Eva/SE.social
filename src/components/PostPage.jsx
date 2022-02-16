@@ -1,12 +1,13 @@
 import React from 'react'
 import Menu from './Menu'
+import Post from './Post'
 import WritePost from './WritePost'
 
 const PostPage = () =>{
     return(
         <section>
-           <h1>post page</h1>
            <WritePost />
+           <Post />
            <Menu/>   
         </section>
         
