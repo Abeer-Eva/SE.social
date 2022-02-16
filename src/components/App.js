@@ -4,6 +4,7 @@ import PostPage from './PostPage'
 import '../App.css'
 
 function App() {
+
   return (
     <div className='App' style={{ fontFamily: 'Avenir' }}>
       <h1>hello</h1>
