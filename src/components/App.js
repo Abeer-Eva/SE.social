@@ -1,19 +1,22 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import Login from "./Login";
-import PostPage from "./PostPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Login} from "./Login";
+import PostPage from './PostPage'
+import '../App.css'
 
 function App() {
   return (
-    <div style={{ fontFamily: 'Avenir' }}>
-       <Router>
+    <div className='App' style={{ fontFamily: 'Avenir' }}>
+      <h1>hello</h1>
+      <BrowserRouter>
+       <Routes>
         {/* <AuthProvider> */}
-          <Routes>
             {/* <Route path="/chats" component={Chats} />*/}
-            {/* <Route path="/" element={<Login/>} />  */}
-            <Route path="/Postpage" element={<PostPage/>} /> 
-          </Routes> 
+            <Route path="/" element={<Login/>} />
+            
+            <Route path="post" element={<PostPage/>} />
         {/* </AuthProvider> */}
-      </Router>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
