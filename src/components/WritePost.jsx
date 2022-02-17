@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../style/WritePosts.css'
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 
 const WritePost = () =>{
 
@@ -16,12 +17,12 @@ const WritePost = () =>{
 
 
     return(
-        <section className='messageSender'>
-            <article className="messageSender-typeBox">
+        <section className='messagesender'>
+            <article className="messagesender__typeBox">
                 <form >
                     <input value={input}
                     onChange={(e) => setInput(e.target.value)} 
-                    className='messageSender-input'
+                    className='messagesender__input'
                     placeholder={`What's on your mind`}/>
                     <input 
                     value={imageUrl}
@@ -29,7 +30,7 @@ const WritePost = () =>{
                     placeholder='image URL (optional)'  />
                 </form>
             </article>
-            <button onClick={handleSubmit} type='submit'>Send</button>
+            <button onClick={handleSubmit}   className="messagesender__send" type='submit'><SendRoundedIcon/></button>
         </section>
     )
 }
