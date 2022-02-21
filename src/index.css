@@ -47,21 +47,21 @@
 /* Login Page */
 
 #login-page {
-  background-image: linear-gradient(#40a9ff, #096dd9);
-  position: absolute;
-  top: 0px;
+   background-image: linear-gradient(#40a9ff, #096dd9);
+  /* position: absolute; */
+  /* top: 0px;
   bottom: 0px;
   left: 0px;
-  right: 0px;
+  right: 0px; */ 
 }
 
 #login-card {
-  position: relative;
-  top: calc(50vh - 144px);
-  left: calc(50vw - 210px);
+   position: relative;
+   top: calc(50vh - 144px); 
+  left: calc(50vw - 170px);
   padding-top: 36px;
   padding-bottom: 66px;
-  width: 420px;
+  width: 320px; 
   text-align: center;
   background-color: white;
   border-radius: 22px;

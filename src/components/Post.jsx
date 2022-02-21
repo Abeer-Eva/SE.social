@@ -9,6 +9,7 @@ const Post = ({ anv, message, timestamp, username, image}) => {
 
   return (
     <section className='post'>
+        <div className='post__header'>logo</div>
         <section className='post_top'>
             <section className='post_topinfo'>
                 <h3 className='userName'>{username}</h3>
