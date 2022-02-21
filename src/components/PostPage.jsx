@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Menu from './Menu'
 import Post from './Post'
 import WritePost from './WritePost'

@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleOutlined, FacebookOutlined} from '@ant-design/icons'
 import 'firebase/app';
 import { auth, provider } from "./firebase";
-import { signInWithPopup, signInWithRedirect,getAuth } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
 
@@ -13,7 +13,6 @@ const SignIn = () =>{
     const [state, dispatch] = useStateValue() //låter oss ta information från datan
 
     const SignInFirebase = () => {
-        // signInWithRedirect(auth, provider)
         signInWithPopup(auth, provider)
         .then(result =>{
            dispatch ({
