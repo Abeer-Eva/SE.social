@@ -15,7 +15,7 @@ function App() {
     
  
     <div className='App' style={{ fontFamily: 'Avenir' }}>
- 
+      <div className='header'>Logo</div>
       <BrowserRouter>
       <AuthProvider> 
        <Routes>

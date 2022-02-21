@@ -56,12 +56,12 @@
 }
 
 #login-card {
-   position: relative;
-   top: calc(50vh - 144px); 
+  position: relative;
+  top: calc(50vh - 144px);
   left: calc(50vw - 170px);
   padding-top: 36px;
   padding-bottom: 66px;
-  width: 320px; 
+  width: 320px;
   text-align: center;
   background-color: white;
   border-radius: 22px;
