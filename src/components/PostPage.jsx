@@ -24,10 +24,9 @@ const PostPage = () =>{
            <WritePost />
             {posts.map((post => (
                <Post
-               
                key={post.id}
                message={post.message}
-               timeStamp={post.timestamp}
+               timeStamp={post.timeStamp}
                username={post.userName}
                image={post.image}
                /> 
