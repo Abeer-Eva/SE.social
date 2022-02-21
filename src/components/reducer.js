@@ -13,6 +13,7 @@ const reducer = (state, action) =>{ //lyssnar på om vi fått en action, så ret
             return{
                 ...state,
                 user: action.user,
+                
             }
 
             default:
