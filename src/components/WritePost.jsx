@@ -12,9 +12,8 @@ const WritePost = () =>{
 
         setInput('')
         setImageUrl('')
-
     }
-
+    
 
     return(
         <section className='messagesender'>
