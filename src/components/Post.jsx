@@ -1,14 +1,18 @@
 import React from 'react'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import {auth} from '../components/firebase'
 import '../style/Post.css'
 
-const Post = ({image, username, timestop, message}) => {
+const Post = ({user}) => {
   return (
     <section className='post'>
-        <section className='post_top'>
+
+<h1>Hello {user}</h1>
+        {/* <section className='post_top'>
             <p className='post_avatar'>profilbild här?</p>
-            <section className='post_topinfo'>
-                <h3>{username}</h3>
+            <section className='post_topinfo'> */}
+               
+                {/* <h3>{username}</h3>
                 <p>Timestamp här</p>
             </section>
         </section>
@@ -26,9 +30,9 @@ const Post = ({image, username, timestop, message}) => {
         <section className='post_options'>
             <section className='post-option'>
                 <ThumbUpIcon />
-                <p>Like</p>
-            </section>
-        </section>
+                <p>Like</p>*/}
+            {/* </section> 
+         </section>  */}
 
     </section>
   )

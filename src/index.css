@@ -84,6 +84,11 @@
   color: white;
 }
 
+.email {
+  background-color: gray;
+  color: white;
+}
+
 #loading-container {
   position: absolute;
   top: 0px;

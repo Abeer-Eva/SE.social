@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth } from "../components/firebase";
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged} from 'firebase/auth'
+import { Link, useNavigate  } from "react-router-dom"
+import Post from '../components/PostPage';
+import SignIn from "../components/SignIn";
 
 
 
@@ -11,15 +14,17 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
+  const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
-  function signup(auth,email, password) {
+  const history = useNavigate();
+  
+ function signup(auth,email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
-  }
+   }
 
-  function login(auth,email, password) {
-    return signInWithEmailAndPassword(auth,email, password)
-  }
+  //  function login(auth,email, password) {
+  //   return signInWithEmailAndPassword(auth,email, password)
+  //  }
 
   // function logout() {
   //   return auth.signOut()
@@ -38,17 +43,21 @@ export function AuthProvider({ children }) {
   // }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged ( auth, user => {
-      setCurrentUser(user)
-      setLoading(false)
+    onAuthStateChanged (auth, user => {
+      setUser(user);
+      setLoading(false);
+
+
+      //****** */
+    // history ('/')
     })
 
-    return unsubscribe
+   
   }, [])
-
+console.log(user);
   const value = {
-    currentUser,
-    login,
+    user,
+    // login,
     signup,
     // logout,
     // resetPassword, 
@@ -59,6 +68,7 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
+    
     </AuthContext.Provider>
   )
 }
