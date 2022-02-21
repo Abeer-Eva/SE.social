@@ -1,3 +1,18 @@
 .post{
+align-items:center;
+}
 
+.post_bottom{
+width:80%;
+height: 264px;
+background: #FFFFFF;
+box-shadow: 0px 4px 20px rgba(196, 196, 196, 0.31);
+border-radius: 20px;
+}
+.post_image{
+width:190px;
+height:190px;
+}
+.post-option{
+    
 }
