@@ -8,7 +8,7 @@ import {db} from './firebase'
 const PostPage = () =>{
 
     const [posts, setPosts] = useState([])
-
+    
     const getPosts = async () => {
         const postsSnapshot = await getDocs(collection(db, "postData"));
         const postsList = postsSnapshot.docs.map((doc) => doc.data());

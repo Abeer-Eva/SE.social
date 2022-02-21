@@ -10,7 +10,7 @@ function App() {
  
  
   const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
-
+  
   return (
     
  
