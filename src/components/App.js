@@ -1,13 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, } from "react-router-dom";
 import React  from 'react';
 import { AuthProvider } from "../context/AuthContext"
 import PostPage from './PostPage'
 import '../App.css'
 import SignIn from "./SignIn";
+import { useStateValue } from "./stateProvider";
 
 function App() {
  
  
+  const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
 
   return (
     
@@ -17,9 +19,7 @@ function App() {
       <BrowserRouter>
       <AuthProvider> 
        <Routes>
-        
-            {/* <Route path="/chats" component={Chats} />*/}
-            <Route path="/" element={<SignIn/>} />
+             <Route path="/" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
             <Route path="post" element={<PostPage/>} /> 
          
       </Routes>
