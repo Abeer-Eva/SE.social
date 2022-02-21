@@ -1,5 +1,8 @@
 .post{
-align-items:center;
+width:90%;
+margin-left:7%;
+margin-right:5%;
+
 }
 
 .post_bottom{
@@ -8,11 +11,23 @@ height: 264px;
 background: #FFFFFF;
 box-shadow: 0px 4px 20px rgba(196, 196, 196, 0.31);
 border-radius: 20px;
+margin-bottom:32px;
 }
 .post_image{
-width:190px;
+max-width:100%;
 height:190px;
 }
-.post-option{
+.post_topinfo{
+    display:flex;
+    position:relative;
+    height:40px;
+    width:270px;
+}
+.prof{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+.timestamp{
     
 }
