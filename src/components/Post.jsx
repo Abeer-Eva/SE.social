@@ -2,24 +2,24 @@ import React from 'react'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import '../style/Post.css'
 
-const Post = ({image, username, timestop, message}) => {
+const Post = ({ anv, message, timestamp, username, image}) => {
+
+    //timestamp importeras inte korrekt här
+
   return (
     <section className='post'>
         <section className='post_top'>
-            <p className='post_avatar'>profilbild här?</p>
             <section className='post_topinfo'>
-                <h3>{username}</h3>
-                <p>Timestamp här</p>
+                <h3 className='userName'>{username}</h3>
+                <p className='timestamp'>time</p>
             </section>
         </section>
 
         <section className='post_bottom'>
-            <p>meddelande</p>
-            <p>{message}</p>
+            <p className='message'>{message}</p>
         </section>
 
         <section className='post_image'>
-            <p>bild här</p>
             <img src={image} alt="" />
         </section>
 

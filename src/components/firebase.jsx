@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 import {getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
 
 
 const app = firebase.initializeApp({
@@ -11,8 +12,11 @@ const app = firebase.initializeApp({
     messagingSenderId: "17026714347",
     appId: "1:17026714347:web:dbf8245e84be80d93cccae"
   });
+
   const auth= getAuth(app);
   const provider = new GoogleAuthProvider();
   const FBprovider= new FacebookAuthProvider();
 
-export { auth, provider,FBprovider };
+  const db = getFirestore(app)
+
+export { auth, provider,FBprovider, db };
