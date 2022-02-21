@@ -1,9 +1,8 @@
 .messagesender{
     display:flex;
-    width: 370px;
+    width: 80%;
     height: 105px;
     left: 45px;
-    top: 82px;
     background: #FFFFFF;
     border-radius: 20px;
     justify-content: space-between;
