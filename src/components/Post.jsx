@@ -39,4 +39,5 @@ const Post = ({ anv, message, timeStamp, username, image}) => {
     </section>
   )
 }
+}
 export default Post
