@@ -7,7 +7,6 @@ const Post = ({ anv, message, timeStamp, username, image}) => {
     //timestamp importeras inte korrekt här
     const time = new Date(timeStamp*1000)
     const timeS = time.toString()
-    console.log(time)
   return (
     <section className='post'>
        
