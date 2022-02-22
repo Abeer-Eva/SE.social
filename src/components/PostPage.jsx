@@ -8,6 +8,7 @@ import {db} from './firebase'
 const PostPage = () =>{
 
     const [posts, setPosts] = useState([])
+  
     
     const getPosts = async () => {
         const postsSnapshot = await getDocs(collection(db, "postData"));
@@ -17,19 +18,20 @@ const PostPage = () =>{
         return postsList;
     };
     getPosts();
-
+  
 
     return(
         <section>
            <WritePost />
             {posts.map((post => (
                <Post
-               
                key={post.id}
+               profilePic={post.profilePic}
                message={post.message}
-               timeStamp={post.timestamp}
+               timeStamp={post.timeStamp}
                username={post.userName}
                image={post.image}
+               like={post.like}
                /> 
             )))}
            <Menu/>   
