@@ -54,7 +54,6 @@ export function AuthProvider({ children }) {
 
    
   }, [])
-console.log(user);
   const value = {
     user,
     // login,

@@ -20,7 +20,6 @@ const SignIn = () =>{
                user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
            })
 
-            console.log(result)
         }).catch(error => alert(error.message))
          }
         
@@ -30,9 +29,7 @@ const SignIn = () =>{
         <div id="login-page ">
             <div id="login-card">
                 <h2> Welcome</h2>
-
                 <div className='login-button  google' onClick={SignInFirebase} >
-                
                     <GoogleOutlined/> SIgn in with google
                 </div>
                 <br/>
@@ -40,10 +37,6 @@ const SignIn = () =>{
                 <div className='login-button  facebook' onClick={SignInFirebase}>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
-
-           
-          
-
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ const WritePost = () =>{
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        const docRef = await addDoc(collection(db, "postData"), {
+        const docRef = await addDoc(collection(db, "postData"), { //nytt post med data från användaren
             message: input, 
             timeStamp: serverTimestamp(),
             profilePic: user.photoURL,
@@ -23,7 +23,6 @@ const WritePost = () =>{
             image: imageUrl,
             like: like
         })
-        console.log("Document written with ID: ", docRef.id);
         setInput('')
         setImageUrl('')
         setLike(0)
