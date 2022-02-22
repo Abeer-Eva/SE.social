@@ -4,10 +4,19 @@ import '../style/Post.css'
 
 const Post = ({ anv, profilePic, message, timestamp, username, image, like}) => {
     //timestamp importeras inte korrekt här
-    const handleClick= async (like) =>{
-        await (like++)
     
-    }
+const Post = ({ anv, message, timeStamp, username, image}) => {
+  
+  const handleClick= async (like) =>{
+          await (like++)
+
+      }
+  
+    //timestamp importeras inte korrekt här
+    const time = new Date(timeStamp*1000)
+    const timeS = time.toString()
+    console.log(time)
+  
   return (
     <section className='post'>
        
@@ -15,7 +24,7 @@ const Post = ({ anv, profilePic, message, timestamp, username, image, like}) => 
             <section className='post_topinfo'>
                 <img  className='prof' src={profilePic}/>
                 <h3 className='userName'>{username}</h3>
-                <p className='timestamp'>{timestamp}</p>
+                <p className='timestamp'>{timeS}</p>
             </section>
         
 

@@ -25,11 +25,10 @@ const PostPage = () =>{
            <WritePost />
             {posts.map((post => (
                <Post
-               
                key={post.id}
                profilePic={post.profilePic}
                message={post.message}
-               timeStamp={post.timestamp}
+               timeStamp={post.timeStamp}
                username={post.userName}
                image={post.image}
                like={post.like}
