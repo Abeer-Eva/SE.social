@@ -40,11 +40,7 @@ const SignIn = () =>{
                 <div className='login-button  facebook' onClick={SignInFirebase}>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
-                <br/>
-                <br/>
-                <div className='login-button  email' onClick={Login} >
-                Sign in with Epost
-                </div>
+
            
           
 

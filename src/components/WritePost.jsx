@@ -10,6 +10,7 @@ const WritePost = () =>{
 
     const [input, setInput] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const [like, setLike] = useState(0)
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -19,11 +20,13 @@ const WritePost = () =>{
             timeStamp: serverTimestamp(),
             profilePic: user.photoURL,
             userName: user.displayName,
-            image: imageUrl
+            image: imageUrl,
+            like: like
         })
         console.log("Document written with ID: ", docRef.id);
         setInput('')
         setImageUrl('')
+        setLike(0)
     }
 
     const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
@@ -48,4 +51,4 @@ const WritePost = () =>{
     )
 }
 
-export default WritePost
+export default WritePost 
