@@ -14,14 +14,13 @@ const WritePost = () =>{
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        const docRef = await addDoc(collection(db, "postData"), {
+        const docRef = await addDoc(collection(db, "postData"), { //nytt post med data från användaren
             message: input, 
             timeStamp: serverTimestamp(),
             profilePic: user.photoURL,
             userName: user.displayName,
             image: imageUrl
         })
-        console.log("Document written with ID: ", docRef.id);
         setInput('')
         setImageUrl('')
     }
