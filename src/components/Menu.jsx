@@ -16,7 +16,7 @@ const Menu = () => {
   };
 
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ width: 500, position:'relative' }} value={value} onChange={handleChange}>
       <BottomNavigationAction
         label="Recents"
         value="recents"

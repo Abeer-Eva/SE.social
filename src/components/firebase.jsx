@@ -12,10 +12,10 @@ const app = firebase.initializeApp({
     messagingSenderId: "17026714347",
     appId: "1:17026714347:web:dbf8245e84be80d93cccae"
   });
-
-  const auth= getAuth(app);
+  const auth= getAuth();
   const provider = new GoogleAuthProvider();
   const FBprovider= new FacebookAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
 
   const db = getFirestore(app)
 
