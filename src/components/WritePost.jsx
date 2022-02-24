@@ -4,18 +4,19 @@ import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import { useStateValue } from "./stateProvider";
 import {db} from './firebase';
 import firebase from 'firebase/compat/app';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 
 const WritePost = () =>{
 
     const [input, setInput] = useState('')
     const [imageUrl, setImageUrl] = useState('')
-    const [like, setLik]= useState(0)
+    const [like, setLike]= useState(0)
 
     const handleSubmit = async (e) =>{
         e.preventDefault(); 
 
         const docRef = await addDoc(collection(db, "postData"), { //nytt post med data från användaren
+            id: '',
             message: input, 
             timeStamp: serverTimestamp(),
             profilePic: user.photoURL,
@@ -25,7 +26,16 @@ const WritePost = () =>{
         })
         setInput('')
         setImageUrl('')
-        setLik(0)
+        console.log(docRef.id)
+        
+
+       const updatePost = async (post) => {
+            const postRef = doc(db, "postData", post.id);
+            await updateDoc(postRef, {
+                id: post.id
+            });
+        };
+        updatePost(docRef)
     }
 
     const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
