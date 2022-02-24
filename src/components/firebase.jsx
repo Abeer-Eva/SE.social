@@ -1,7 +1,8 @@
 import * as firebase from 'firebase/app';
 import "firebase/auth";
-import {getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import {getAuth, GoogleAuthProvider, FacebookAuthProvider,signOut } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
+
 
 
 const app = firebase.initializeApp({
@@ -18,5 +19,7 @@ const app = firebase.initializeApp({
   const FBprovider= new FacebookAuthProvider();
 
   const db = getFirestore(app)
+ 
+
 
 export { auth, provider,FBprovider, db };
