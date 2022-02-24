@@ -13,7 +13,6 @@ const PostPage = () =>{
     const getPosts = async () => {
         const postsSnapshot = await getDocs(collection(db, "postData"));
         const postsList = postsSnapshot.docs.map((doc) => doc.data());
-        postsList.forEach((post, i) => post.id = i++)
         setPosts(postsList)
         return postsList;
     };
@@ -25,7 +24,7 @@ const PostPage = () =>{
            <WritePost />
             {posts.map((post => (
                <Post
-               key={post.id}
+               id={post.id}
                profilePic={post.profilePic}
                message={post.message}
                timeStamp={post.timeStamp}
