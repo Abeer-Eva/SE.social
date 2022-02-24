@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleOutlined, FacebookOutlined} from '@ant-design/icons'
+import { GoogleOutlined, FacebookOutlined, EmailOutlined} from '@ant-design/icons'
 import 'firebase/app';
 import { auth, provider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -20,18 +20,16 @@ const SignIn = () =>{
                user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
            })
 
-            console.log(result)
         }).catch(error => alert(error.message))
          }
+        
 //  console.log(auth);
 // console.log(provider);
     return (
         <div id="login-page ">
             <div id="login-card">
                 <h2> Welcome</h2>
-
                 <div className='login-button  google' onClick={SignInFirebase} >
-                
                     <GoogleOutlined/> SIgn in with google
                 </div>
                 <br/>
@@ -39,7 +37,6 @@ const SignIn = () =>{
                 <div className='login-button  facebook' onClick={SignInFirebase}>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
-
             </div>
         </div>
     );

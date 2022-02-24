@@ -1,5 +1,3 @@
-
- 
 import React from 'react'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import moment from 'moment'
@@ -10,7 +8,6 @@ import { doc, setDoc, updateDoc } from "firebase/firestore";
 const Post = ({ anv, profilePic, message, timeStamp, username, image, like}) => {
     
 
-    
  const updateLike = async (post) => {
    console.log('1');
    const likeRef= doc(db, "postData", post.anv);
