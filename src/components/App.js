@@ -1,40 +1,38 @@
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, } from "react-router-dom";
-import React  from 'react';
-import { AuthProvider } from "../context/AuthContext"
+import React, { useState }  from 'react';
+import { AuthProvider, useAuth } from "../context/AuthContext"
 import PostPage from './PostPage'
 import '../App.css'
 import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
-import {signOut } from "firebase/auth";
+import { auth } from "../components/firebase";
+import { signOut} from 'firebase/auth'
+;
+import { Logout } from "@mui/icons-material";
 
 function App() {
  
- 
+ const {logout}= AuthProvider();
   const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
-
-  const logout = () => {
-    console.log('logout')
-    signOut().then(() => {
-      // Sign-out successful.
-      alert("Successfully signed out!");
-    }).catch((error) => {
-      // An error happened.
-    });;
-
+  
+ async function handlelogout() {
+    console.log('lougout func')
+      await logout();
+  
+}
    
-  };
   return (
     
  
     <div className='App' style={{ fontFamily: 'Avenir' }}>
       <div className='header'><p>Logo</p>
-      < button clbassName="logout" onClick={()=>logout
-      ()}> logout</button></div>
+      < button className="logout"  variant="link"  onClick= {handlelogout}>
+       <Logout/></button></div>
       <BrowserRouter>
       <AuthProvider> 
        <Routes>
              <Route path="/" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
-            <Route path="post" element={<PostPage/>} /> 
+             <Route path="post" element={<PostPage/>} /> 
          
       </Routes>
       </AuthProvider>
