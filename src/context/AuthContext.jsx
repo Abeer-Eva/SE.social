@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
     user,
     // login,
     //signup,
-    logout,
+    // logout,
     // resetPassword, 
     // updateEmail,
     // updatePassword
