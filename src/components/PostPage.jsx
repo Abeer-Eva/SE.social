@@ -11,14 +11,13 @@ const PostPage = () =>{
   
     
     const getPosts = async () => {
-        const postsSnapshot = await getDocs(collection(db, "postData"));
-        const postsList = postsSnapshot.docs.map((doc) => doc.data());
+        const postsSnapshot = await getDocs(collection(db, "postData")); //hämtar firebase databas
+        const postsList = postsSnapshot.docs.map((doc) => doc.data()); //sparar ner databasen i postsList
         postsList.forEach((post, i) => post.key = i++)
         setPosts(postsList)
         return postsList;
     };
     getPosts();
-  
 
     return(
         <section>
@@ -26,7 +25,7 @@ const PostPage = () =>{
             {posts.map((post => (
                <Post
                key={post.key}
-               id={post.id}
+               id={post.id} 
                profilePic={post.profilePic}
                message={post.message}
                timeStamp={post.timeStamp}
