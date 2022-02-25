@@ -5,6 +5,7 @@ import '../style/Post.css'
 import { db } from '../components/firebase'; 
 import { collection, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import Like from './Like';
+import { Share } from '@material-ui/icons';
 
 const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
     
@@ -37,7 +38,7 @@ const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
 
             <img alt='profile pic' className='prof' src={profilePic}/>
             <article className='info' >
-                <h3 className='userName'>{username}</h3>
+            <span class="font-weight-bold userName">{username}</span>
                 <p className='timestamp'>{date}</p>
                 </article>
             </section>
@@ -45,7 +46,7 @@ const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
         <section className='post_bottom'>
             <p className='message'>{message}</p>
             <img src={image} alt="" className='post_image'/>
-             <div className='like' onClick={() => Like()}>   <ThumbUpIcon /> {like}</div>  
+             <div className='like' onClick={() => Like(like)}>   <ThumbUpIcon />{like} </div>  
             </section>
         
     </section>

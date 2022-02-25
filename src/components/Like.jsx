@@ -15,14 +15,15 @@ const Like = () =>{
 
   
      const updateLike = async (post) => {
-        const likeRef = doc(db, "postData", post.id);
+        const likeRef = doc(db, "postData", post.like);
         await updateDoc(likeRef, {
             like:+1
         })
         
             dispatch ({
                 type: actionTypes.SET_LIKE,
-                user
+                
+                
                 //pushar svaret vi får när man loggar in, in till actiontypes användardata
            
         });
