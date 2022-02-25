@@ -15,7 +15,7 @@ const Like = () =>{
 
   
      const updateLike = async (post) => {
-        const likeRef = doc(db, "postData", post.like);
+        const likeRef = doc(db, "postData", post.id );
         await updateDoc(likeRef, {
             like:+1
         })

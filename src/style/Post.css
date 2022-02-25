@@ -41,3 +41,9 @@ height:190px;
     font-size:15px;
  
 }  
+
+.socials{
+    display:flex;
+    justify-content:end;
+    padding-top:30px;
+}

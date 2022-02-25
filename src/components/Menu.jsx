@@ -7,6 +7,7 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import PeopleIcon from '@material-ui/icons/People';
+import ChatIcon from '@material-ui/icons/Chat';
 
 const Menu = () => {
   const [value, setValue] = React.useState('recents');
@@ -40,7 +41,7 @@ const Menu = () => {
       <BottomNavigationAction
         label="Nearby"
         value="nearby"
-        icon={<NotificationsIcon />}
+        icon={<ChatIcon/>}
       />
     </BottomNavigation>
     </div>

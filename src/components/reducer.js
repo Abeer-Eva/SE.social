@@ -20,7 +20,7 @@ const reducer = (state, action) =>{ //lyssnar på om vi fått en action, så ret
         case actionTypes.SET_LIKE:
             return{
                 ...state,
-                like:action.payload
+                user:action.payload
             }
             default:
                 return state;

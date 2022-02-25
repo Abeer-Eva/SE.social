@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ShareIcon from '@material-ui/icons/Share';
 import moment from 'moment'
 import '../style/Post.css'
 import { db } from '../components/firebase'; 
@@ -46,7 +47,10 @@ const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
         <section className='post_bottom'>
             <p className='message'>{message}</p>
             <img src={image} alt="" className='post_image'/>
-             <div className='like' onClick={() => Like(like)}>   <ThumbUpIcon />{like} </div>  
+            <div className='socials'>
+                    <div className='like' onClick={() => Like(like)}> <ThumbUpIcon />{like} </div> 
+                    <ShareIcon/>
+                    </div> 
             </section>
         
     </section>
