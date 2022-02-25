@@ -1,12 +1,9 @@
 import React from 'react';
-import { GoogleOutlined, FacebookOutlined, EmailOutlined} from '@ant-design/icons'
 import 'firebase/app';
-import { auth, provider } from "./firebase";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { auth } from "./firebase";
+import {  signOut } from "firebase/auth";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
-import { Navigate } from 'react-router-dom';
-import SignIn from './SignIn';
 
 
 // Sign out anv av en redirect.
@@ -16,7 +13,7 @@ const SignOut = () =>{
 
     const SignOutFirebase = () => {
         signOut(auth)
-    .then(() => {
+       .then(() => {
         console.log('logged out');
         dispatch ({
             type: actionTypes.SET_USER,
@@ -33,7 +30,6 @@ const SignOut = () =>{
     return (
         <div id="logOut-page ">
             <div id="logOut-card">
-                <h2> logga ut</h2>
                 < button className="logout" onClick={()=>SignOutFirebase
                 ()}> logout</button>
             </div>
