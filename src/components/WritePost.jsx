@@ -3,7 +3,6 @@ import '../style/WritePosts.css'
 import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import { useStateValue } from "./stateProvider";
 import {db} from './firebase';
-import firebase from 'firebase/compat/app';
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 
 const WritePost = () =>{
@@ -29,9 +28,9 @@ const WritePost = () =>{
         console.log(docRef.id)
         
 
-       const updatePost = async (post) => {
-            const postRef = doc(db, "postData", post.id);
-            await updateDoc(postRef, {
+       const updatePost = async (post) => { 
+            const postRef = doc(db, "postData", post.id); //hämtar dokument via id från databasen
+            await updateDoc(postRef, {  //updaterar id raden i dokumentet
                 id: post.id
             });
         };

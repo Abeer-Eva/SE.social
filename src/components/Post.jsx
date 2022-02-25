@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ShareIcon from '@material-ui/icons/Share';
 import moment from 'moment'
 import '../style/Post.css'
 import { db } from '../components/firebase'; 
-import { collection, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
-import Like from './Like';
-import { Share } from '@material-ui/icons';
+import { doc, updateDoc } from "firebase/firestore";
 
-const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
-    
-  const [ likeMore, setLikeMore ] = useState(like)
-  const [ post, setPost ] = useState([])
+const Post = ({ key, id, profilePic, message, timeStamp, username, image, like}) => {
 
-//  const updateLike = async (likeMore) => {
-   
-//   if(likeMore >= 1){
-//     setLikeMore(1)
-//   } else{
-//     setLikeMore(likeMore + 1)
-//   }
-//   console.log(1)
+const likeIt = async () =>{
+    let x
+    if( like >= 0){
+      x = like + 1
+    }
+    const postRef = doc(db, "postData", id); //hämtar dokument från databasen med hjälp av id från props. 
+    await x && updateDoc(postRef, { //updaterar like
+        like: x
+    });
+    console.log('document updated, ' + id, 'data ' + x)
+};
 
-//   const updatePost = async (post) => {
-//     console.log('like')
-// };updatePost(post)};
 
     const timeStampDate = timeStamp 
     const dateInMills = timeStampDate * 1000
@@ -48,7 +43,7 @@ const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
             <p className='message'>{message}</p>
             <img src={image} alt="" className='post_image'/>
             <div className='socials'>
-                    <div className='like' onClick={() => Like(like)}> <ThumbUpIcon />{like} </div> 
+                    <div className='like' onClick={() => likeIt()}> <ThumbUpIcon />{like} </div> 
                     <ShareIcon/>
                     </div> 
             </section>

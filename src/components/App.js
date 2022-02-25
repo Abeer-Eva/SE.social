@@ -1,13 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, } from "react-router-dom";
-import React, { useState }  from 'react';
-import { AuthProvider, useAuth } from "../context/AuthContext"
+import { BrowserRouter, Routes, Route, Navigate, } from "react-router-dom";
+import React  from 'react';
+import { AuthProvider } from "../context/AuthContext"
 import PostPage from './PostPage'
 import '../App.css'
 import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
-import {signOut } from "firebase/auth";
-import { auth, provider } from "./firebase";
-import { actionTypes } from "./reducer";
 import SignOut from "./SignOut";
 
 function App() {
