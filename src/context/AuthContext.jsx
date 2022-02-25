@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth } from "../components/firebase";
-import {  createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged} from 'firebase/auth'
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged,signOut} from 'firebase/auth'
 import { Link, useNavigate  } from "react-router-dom"
 import Post from '../components/PostPage';
 import SignIn from "../components/SignIn";
@@ -26,9 +26,10 @@ export function AuthProvider({ children }) {
   //   return signInWithEmailAndPassword(auth,email, password)
   //  }
 
-  // function logout() {
-  //   return auth.signOut()
-  // }
+   function logout(auth) {
+     signOut(auth)
+     history('/')
+   }
 
   // function resetPassword(email) {
   //   return auth.sendPasswordResetEmail(email)
@@ -49,7 +50,7 @@ export function AuthProvider({ children }) {
 
 
       //****** */
-    // history ('/')
+    //
     })
 
    
