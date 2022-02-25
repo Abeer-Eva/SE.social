@@ -13,7 +13,7 @@ export function useAuth() {
   return useContext(AuthContext)
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider({children}) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const history = useNavigate();
@@ -26,10 +26,10 @@ export function AuthProvider({ children }) {
   //   return signInWithEmailAndPassword(auth,email, password)
   //  }
 
-   function logout(auth) {
-     signOut(auth)
-     history('/')
-   }
+  //  function logout(auth) {
+  //    signOut(auth)
+  //    history('/')
+  //  }
 
   // function resetPassword(email) {
   //   return auth.sendPasswordResetEmail(email)

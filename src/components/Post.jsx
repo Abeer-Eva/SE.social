@@ -5,6 +5,13 @@ import moment from 'moment'
 import '../style/Post.css'
 import { db } from '../components/firebase'; 
 import { doc, updateDoc } from "firebase/firestore";
+import IconButton from '@mui/material/IconButton';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
+import CardHeader from '@mui/material/CardHeader';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Avatar from '@mui/material/Avatar';
 
 const Post = ({ key, id, profilePic, message, timeStamp, username, image, like}) => {
 
@@ -31,20 +38,33 @@ const likeIt = async () =>{
     <section className='post'>
        
             <section className='post_topinfo'>
-
-            <img alt='profile pic' className='prof' src={profilePic}/>
-            <article className='info' >
-            <span class="font-weight-bold userName">{username}</span>
-                <p className='timestamp'>{date}</p>
-                </article>
+            <CardHeader
+        avatar={
+          <Avatar src={profilePic} aria-label="recipe">
+          
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={username}
+        subheader={date}
+      />
             </section>
         
         <section className='post_bottom'>
-            <p className='message'>{message}</p>
-            <img src={image} alt="" className='post_image'/>
+        <CardContent>
+            <Typography paragraph  variant="body2" className='message'>{message}</Typography>
+            </CardContent>
+            <CardMedia
+              component="img" src={image} alt="" className='post_image'/>
             <div className='socials'>
-                    <div className='like' onClick={() => likeIt()}> <ThumbUpIcon />{like} </div> 
-                    <ShareIcon/>
+                    <IconButton className='like' onClick={() => likeIt()}> <ThumbUpIcon />{like} </IconButton > 
+                    <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
                     </div> 
             </section>
         

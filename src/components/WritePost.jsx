@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../style/WritePosts.css'
-import SendRoundedIcon from '@material-ui/icons/SendRounded';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
 import { useStateValue } from "./stateProvider";
 import {db} from './firebase';
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
@@ -53,7 +54,10 @@ const WritePost = () =>{
                     onChange={(e) => setImageUrl(e.target.value)} 
                     placeholder='image URL (optional)' className='messagesender__inputimg'  />
                 </form>
-                <button onClick={handleSubmit}   className="messagesender__send" type='submit'><SendRoundedIcon/></button>
+            
+                <Button variant="contained"   onClick={handleSubmit}  type='submit' endIcon={<SendIcon />}>
+        Send
+      </Button>
             </article>
            
         </section>

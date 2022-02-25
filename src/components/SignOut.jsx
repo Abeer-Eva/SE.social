@@ -4,6 +4,9 @@ import { auth } from "./firebase";
 import {  signOut } from "firebase/auth";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
+import { SignpostOutlined } from '@mui/icons-material';
+import Button from '@mui/material/Button';
+
 
 
 // Sign out anv av en redirect.
@@ -30,8 +33,8 @@ const SignOut = () =>{
     return (
         <div id="logOut-page ">
             <div id="logOut-card">
-                < button className="logout" onClick={()=>SignOutFirebase
-                ()}> logout</button>
+                < Button className="logout" onClick={()=>SignOutFirebase
+                ()}><SignpostOutlined/></Button>
             </div>
         </div>
     );

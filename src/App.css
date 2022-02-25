@@ -13,13 +13,8 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(196, 196, 196, 0.31);
     }
-.meny{
+/* .meny{
     position:fixed;
     top:610px;
-}    
-@media  screen and (min-width: 708px) {
-    .meny{
-        top:700px;
-        width :90%;
-    }
-}
+}     */
+

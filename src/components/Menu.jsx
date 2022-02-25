@@ -17,7 +17,7 @@ const Menu = () => {
   };
 
   return (<div className='meny'>
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
         label="Recents"
         value="recents"
