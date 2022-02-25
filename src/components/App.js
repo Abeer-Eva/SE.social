@@ -8,8 +8,7 @@ import { useStateValue } from "./stateProvider";
 import SignOut from "./SignOut";
 
 function App() {
- 
- const {logout}= AuthProvider();
+  
   const [{user}, dispatch] = useStateValue() //får användardatan här från reducer
   return (
     
