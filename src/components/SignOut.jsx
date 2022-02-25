@@ -17,7 +17,7 @@ const SignOut = () =>{
         console.log('logged out');
         dispatch ({
             type: actionTypes.SET_USER,
-            user: '', //pushar svaret vi får när man loggar in, in till actiontypes användardata
+            user: '', //pushar svaret in till actiontypes användardata
         })
     })
     .catch((error) => {
