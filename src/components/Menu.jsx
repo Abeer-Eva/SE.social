@@ -17,11 +17,6 @@ const Menu = () => {
   return (<div className='meny'>
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-      sx={{
-        color: black,
-        
-
-      }}
         label="Recents"
         value="recents"
         icon={<HomeOutlinedIcon />}
