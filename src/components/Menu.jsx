@@ -1,13 +1,11 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
-import HomeIcon from '@material-ui/icons/Home';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import PeopleIcon from '@material-ui/icons/People';
-import ChatIcon from '@material-ui/icons/Chat';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 
 const Menu = () => {
   const [value, setValue] = React.useState('recents');
@@ -19,29 +17,34 @@ const Menu = () => {
   return (<div className='meny'>
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
+      sx={{
+        color: black,
+        
+
+      }}
         label="Recents"
         value="recents"
-        icon={<HomeIcon />}
+        icon={<HomeOutlinedIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<PlayCircleFilledIcon />}
+        label="Videos"
+        value="Videos"
+        icon={<PlayCircleOutlineOutlinedIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<PeopleIcon />}
+        label="Contacts"
+        value="Contacts"
+        icon={<PersonOutlineOutlinedIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<FavoriteIcon />}
+        label="Chat"
+        value="Chat"
+        icon={<ForumOutlinedIcon />}
       />
       <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        icon={<ChatIcon/>}
+        label="Notifications"
+        value="Notifications"
+        icon={<NotificationsNoneOutlinedIcon/>}
       />
     </BottomNavigation>
     </div>
