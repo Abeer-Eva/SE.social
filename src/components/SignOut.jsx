@@ -16,16 +16,16 @@ const SignOut = () =>{
 
     const SignOutFirebase = () => {
         signOut(auth)
-       .then(() => {
-        console.log('logged out');
+    //    .then(() => {
+       console.log('logged out');
         dispatch ({
             type: actionTypes.SET_USER,
             user: '', //pushar svaret in till actiontypes användardata
         })
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+    // })
+    // .catch((error) => {
+    //     console.log(error);
+    // });
          }
         
 //  console.log(auth);
