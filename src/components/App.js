@@ -6,7 +6,7 @@ import '../App.css'
 import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
 import SignOut from "./SignOut";
-import GetUser from "./GetUser";
+import GetUsers from "./getUser";
 
 function App() {
   
@@ -22,7 +22,8 @@ function App() {
        <Routes>
              <Route path="/" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
             <Route path="post" element={user ? <PostPage/> : < Navigate to='/' />  } /> 
-         <Route path='getuser' element={<GetUser />}/>
+            <Route path="getusers" element={<GetUsers/>}/>
+         
       </Routes>
       </AuthProvider>
       </BrowserRouter>

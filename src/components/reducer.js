@@ -5,6 +5,7 @@ export const initialState = { //hur datan initiellt ser ut
 export const actionTypes = { 
     SET_USER: 'SET_ USER',
     SET_LIKE:'SET_LIKE',
+    GET_USRES:' GET_USRES',
 }
 
 
@@ -22,6 +23,11 @@ const reducer = (state, action) =>{ //lyssnar på om vi fått en action, så ret
                 ...state,
                 user:action.payload
             }
+            case actionTypes.GET_USRES:
+                return{
+                    ...state,
+                    user:action.payload
+                }
             default:
                 return state;
     }

@@ -8,7 +8,7 @@ import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineO
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-
+import GetUsers from './getUser';
 const Menu = () => {
   const [value, setValue] = React.useState('recents');
 
@@ -28,7 +28,7 @@ const Menu = () => {
         value="Videos"
         icon={<PlayCircleOutlineOutlinedIcon />}
       />
-      <BottomNavigationAction
+      <BottomNavigationAction onClick={()=>GetUsers()}
         label="Contacts"
         value="Contacts"
         icon={<PersonOutlineOutlinedIcon />}
