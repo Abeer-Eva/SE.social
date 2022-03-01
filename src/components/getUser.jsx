@@ -4,6 +4,7 @@ import { auth, db } from "./firebase";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
+import { Chat } from '@material-ui/icons';
 
 
 
@@ -15,10 +16,8 @@ const GetUsers = () =>{
 
         const getAllUsers = async () => {
         const usersSnapshot = await getDocs(collection(db, "postData"));
-
-        
         const usersList = usersSnapshot.docs.map((doc) => doc.data());
-     
+        
         SetList(usersList);
         return usersList;
     
@@ -34,8 +33,8 @@ const GetUsers = () =>{
         <div  >
             <div className='UsersList'>
               {list.map(users=>(
-                     <section key={users.id} className="user-card">
-                     <h3>{users.userName}</h3>
+                     <section key={users} className="user-card">
+                     <h3 onclick={()=>Chat()} >{users.userName}</h3>
                     
                 </section>))
               }

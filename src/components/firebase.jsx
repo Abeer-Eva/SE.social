@@ -20,6 +20,6 @@ const app = firebase.initializeApp({
 
   const db = getFirestore(app)
  
-
+  
 
 export { auth, provider,FBprovider, db };
