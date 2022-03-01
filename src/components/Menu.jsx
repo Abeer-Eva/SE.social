@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom'
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
@@ -31,6 +32,7 @@ const Menu = () => {
         label="Contacts"
         value="Contacts"
         icon={<PersonOutlineOutlinedIcon />}
+        onClick={() => <Link to={{pathname: 'getuser'}}></Link>}
       />
       <BottomNavigationAction onClick={()=> DirectChatPage()}
         label="Chat"
