@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../style/Post.css'
 import Menu from './Menu'
 import Post from './Post'
 import WritePost from './WritePost'
@@ -20,7 +21,7 @@ const PostPage = () =>{
     getPosts();
 
     return(
-        <section>
+        <section className='Full-post-page'>
            <WritePost />
             {posts.map((post => (
                <Post

@@ -31,7 +31,7 @@ const SignOut = () =>{
 //  console.log(auth);
 // console.log(provider);
     return (
-        <div id="logOut-page ">
+        <div id="logOut-page">
             <div id="logOut-card">
                 < Button className="logout" onClick={()=>SignOutFirebase
                 ()}><SignpostOutlined/></Button>
