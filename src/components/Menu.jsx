@@ -1,5 +1,4 @@
 import * as React from 'react';
-import GetUser from './GetUser'
 import {Link} from 'react-router-dom'
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
