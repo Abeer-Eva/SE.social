@@ -6,7 +6,7 @@ import '../App.css'
 import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
 import SignOut from "./SignOut";
-import GetUsers from "./getUser";
+import GetUsers from "./GetUser";
 import DirectChatPage from "./Chats";
 
 function App() {

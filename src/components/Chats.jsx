@@ -2,14 +2,13 @@ import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
 import React, { useState } from 'react'
 import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
-import {auth} from '../components/firebase'
-
-
+import axios from 'axios'
+import { AuthProvider } from '../context/AuthContext'
 
 
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
-
+	
 	function createDirectChat(creds) {
 		getOrCreateChat(
 			creds,
@@ -17,18 +16,21 @@ const DirectChatPage = () => {
 			() => setUsername('')
 		)
 	}
+    
+	function getOrCreateUser(callback) {
+        axios.put(
+            'https://api.chatengine.io/users/',
+            {username: [username]},
+            {headers: {"Private-Key": process.env.projectID}}
+        )
+        .then(r => callback(r.data))
+        .catch(e => console.log('Get or create user error', e))
 
+		}
 	function renderChatForm(creds) {
 		return (
 			<div>
-				<input 
-					placeholder='Username' 
-					value={username} 
-					onChange={(e) => setUsername(e.target.value)} 
-				/>
-				<button onClick={() => createDirectChat(creds)}>
-					Create
-				</button>
+			
 			</div>
 		)
 	}
@@ -46,10 +48,9 @@ return(
            </div>
       </div>
         <ChatEngine
-        userName='Sarah'
-		userSecret='1234'
-		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
-          renderNewChatForm={(creds) => renderChatForm(creds)}
+		userSecret=''
+		projectID={process.env.projectID}
+		userName= {[username]}
         />
 		</div>
       )
