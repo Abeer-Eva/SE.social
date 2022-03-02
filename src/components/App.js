@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
       <AuthProvider> 
        <Routes>
-             <Route path="/" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
+             <Route path="" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
             <Route path="post" element={user ? <PostPage/> : < Navigate to='/' />  } /> 
             <Route path="post/getusers" element={<GetUsers/> }/>
             <Route path="post/chat" element={<DirectChatPage/>}/>
