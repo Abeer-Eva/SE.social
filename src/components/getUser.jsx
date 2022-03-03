@@ -7,6 +7,7 @@ import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
 import { Chat } from '@material-ui/icons';
 import DirectChatPage from './Chats';
+import Menu from './Menu'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 
