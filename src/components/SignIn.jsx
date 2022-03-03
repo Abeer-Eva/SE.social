@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoogleOutlined, FacebookOutlined, EmailOutlined} from '@ant-design/icons'
 import 'firebase/app';
+import '../style/logIn.css'
 import { auth, provider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useStateValue } from './stateProvider';

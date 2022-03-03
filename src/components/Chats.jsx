@@ -10,7 +10,6 @@ import {
 import axios from 'axios'
 import { AuthProvider } from '../context/AuthContext'
 
-
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
 	

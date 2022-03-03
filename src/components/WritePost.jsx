@@ -54,10 +54,8 @@ const WritePost = () =>{
                     onChange={(e) => setImageUrl(e.target.value)} 
                     placeholder='image URL (optional)' className='messagesender__inputimg'  />
                 </form>
-            
-                <Button variant="contained"   onClick={handleSubmit}  type='submit' endIcon={<SendIcon />}>
-        Send
-      </Button>
+
+                <button className='sendBtn' onClick={handleSubmit}  type='submit'>Send</button>
             </article>
            
         </section>

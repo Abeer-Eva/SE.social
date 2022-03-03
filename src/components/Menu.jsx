@@ -9,6 +9,7 @@ import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import GetUsers from './GetUser';
 import DirectChatPage from './Chats'
+import PostPage from './PostPage';
 const Menu = () => {
   const pathname = window.location.pathname
   const [value, setValue] = React.useState('pathname');
@@ -20,9 +21,9 @@ const Menu = () => {
   return (<div className='meny'>
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        icon={<HomeOutlinedIcon />}
+        label="Home"
+        value="home"
+        icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}
       />
       <BottomNavigationAction
         label="Videos"
