@@ -1,6 +1,6 @@
 import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { 
     ChatEngine, 
     ChatList, ChatCard, NewChatForm,
@@ -9,48 +9,28 @@ import {
 } from 'react-chat-engine'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { StateContext } from './stateProvider'
 
 
 const DirectChatPage = () => {
-	
-	const history = useNavigate();
+	const [user, setUser]= useState('')
+	// const history = useNavigate();
 
-    useEffect(() => {
+    // useEffect(() => {
        
-		//hämta users uppgift
+	// 	//hämta users uppgift
         axios.get('https://api.chatengine.io/users/me/', {
-            headers: {
-                'Project-ID': 'b29c0382-07ab-44d3-a3e1-86606070fac5',
-                'User-Name': user.email,
+           headers: {
+           'Project-ID': 'b29c0382-07ab-44d3-a3e1-86606070fac5',
+                 'User-Name': user.email,
                 'User-Secret': user.uid
-            }
+          }
         })
-            .then(() => {
-                setLoading(false)
-            })
-            .catch(() => {
+            
+           
 
-                const formData = new FormData()
-                formData.append('email', user.email);
-                formData.append('username', user.email);
-                formData.append('secret', user.uid);
-                getFiles(user.photoURL)
-                    .then((avatar) => {
-                        formData.append('avatar', avatar, avatar.name)
-                        console.log(formData);
-                        axios.post('https://api.chatengine.io/users/',
-                            formData,
-                            { headers: { "private-key":'b29c0382-07ab-44d3-a3e1-86606070fac5'} }
-                        )
-                            .then(() => {
-                                setLoading(false)
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                            })
-                    })
-            })
-    }, [user, history])
+		
+ 
 return(
 
     <div  className = "chats-page">
@@ -58,13 +38,13 @@ return(
          <div className= "logo-tab">
                <SmileFilled/>  SE.social
           </div>
-          <div onClick={signOut} className= "logout-tab">
+          <div onClick={signOut} className="logout-tab">
               <LoginOutlined/> Logout
            </div>
       </div>
         <ChatEngine
-		 userName={user.email}
-		 userSecret={user.uid}
+		 userName='Eva'
+		 userSecret='Abeer1987'
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}

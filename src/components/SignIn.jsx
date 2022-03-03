@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleOutlined, FacebookOutlined, EmailOutlined} from '@ant-design/icons'
 import 'firebase/app';
-import { auth, provider } from "./firebase";
+import { auth, FBprovider, provider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
@@ -22,6 +22,17 @@ const SignIn = () =>{
 
         }).catch(error => alert(error.message))
          }
+         const SignInWithFb = () => {
+            signInWithPopup(auth, FBprovider)
+            .then(result =>{
+                
+               dispatch ({
+                   type: actionTypes.SET_USER,
+                   user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
+               })
+    
+            }).catch(error => alert(error.message))
+             }
         
 //  console.log(auth);
 // console.log(provider);
@@ -34,7 +45,7 @@ const SignIn = () =>{
                 </div>
                 <br/>
                 <br/>
-                <div className='login-button  facebook' onClick={SignInFirebase}>
+                <div className='login-button  facebook' onClick={SignInWithFb}>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
             </div>
