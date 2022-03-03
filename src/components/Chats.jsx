@@ -1,6 +1,6 @@
 import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { 
     ChatEngine, 
     ChatList, ChatCard, NewChatForm,
@@ -8,40 +8,49 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
-import { AuthProvider } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const DirectChatPage = () => {
-	const [username, setUsername] = useState('')
 	
-	// function createDirectChat(creds) {
-	// 	getOrCreateChat(
-	// 		creds,
-	// 		{ is_direct_chat: true, usernames: [username] },
-	// 		() => setUsername('')
-	// 	)
-	// }
-    
-	// function getOrCreateUser(callback) {
-    //     axios.put(
-    //         'https://api.chatengine.io/users/',
-    //         {username: [username]},
+	const history = useNavigate();
 
-    //         {headers: {"Private-Key": process.env.projectID}}
-    //     )
-    //     .then(r => callback(r.data))
-    //     .catch(e => console.log('Get or create user error', e))
+    useEffect(() => {
+       
+		//hämta users uppgift
+        axios.get('https://api.chatengine.io/users/me/', {
+            headers: {
+                'Project-ID': 'b29c0382-07ab-44d3-a3e1-86606070fac5',
+                'User-Name': user.email,
+                'User-Secret': user.uid
+            }
+        })
+            .then(() => {
+                setLoading(false)
+            })
+            .catch(() => {
 
-	// 	}
-	// function renderChatForm(creds) {
-	// 	return (
-	// 		<div>
-			
-	// 		</div>
-	// 	)
-	// }
-
-
+                const formData = new FormData()
+                formData.append('email', user.email);
+                formData.append('username', user.email);
+                formData.append('secret', user.uid);
+                getFiles(user.photoURL)
+                    .then((avatar) => {
+                        formData.append('avatar', avatar, avatar.name)
+                        console.log(formData);
+                        axios.post('https://api.chatengine.io/users/',
+                            formData,
+                            { headers: { "private-key":'b29c0382-07ab-44d3-a3e1-86606070fac5'} }
+                        )
+                            .then(() => {
+                                setLoading(false)
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            })
+                    })
+            })
+    }, [user, history])
 return(
 
     <div  className = "chats-page">
@@ -54,8 +63,8 @@ return(
            </div>
       </div>
         <ChatEngine
-		userName=''
-		userSecret=''
+		 userName={user.email}
+		 userSecret={user.uid}
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
