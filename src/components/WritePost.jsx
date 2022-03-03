@@ -52,10 +52,11 @@ const WritePost = () =>{
                     <input 
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)} 
-                    placeholder='image URL (optional)' className='messagesender__inputimg'  />
+                    placeholder='image URL' className='messagesender__inputimg'  />
                 </form>
-
-                <button className='sendBtn' onClick={handleSubmit}  type='submit'>Send</button>
+                <section className='btnArea'>
+                    <button className='sendBtn' onClick={handleSubmit}  type='submit'>Send</button>
+                </section>
             </article>
            
         </section>

@@ -1,5 +1,5 @@
 import React from 'react'
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShareIcon from '@material-ui/icons/Share';
 import moment from 'moment'
 import '../style/Post.css'
@@ -61,8 +61,8 @@ const likeIt = async () =>{
             <CardMedia
               component="img" src={image} alt="" className='post_image'/>
             <div className='socials'>
-                    <IconButton className='like' onClick={() => likeIt()}> <ThumbUpIcon />{like} </IconButton > 
-                    <IconButton aria-label="share">
+                    <IconButton  className='like' onClick={() => likeIt()}> <FavoriteBorderOutlinedIcon style={{color: "#3b5998", height: "1em", width: "1em"}}/> {like} </IconButton > 
+                    <IconButton aria-label="share" style={{color: "#3b5998", height: "1em", width: "1em"}}>
           <ShareIcon />
         </IconButton>
                     </div> 

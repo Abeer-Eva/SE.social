@@ -7,7 +7,7 @@ import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineO
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import GetUsers from './GetUser';
+import GetUsers from './getUser';
 import DirectChatPage from './Chats'
 import PostPage from './PostPage';
 const Menu = () => {
@@ -20,11 +20,12 @@ const Menu = () => {
 
   return (<div className='meny'>
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
+    <Link to="/">
       <BottomNavigationAction
         label="Home"
         value="home"
         icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}
-      />
+      /></Link>
       <BottomNavigationAction
         label="Videos"
         value="Videos"

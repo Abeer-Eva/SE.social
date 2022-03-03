@@ -7,12 +7,9 @@ import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
 import { Chat } from '@material-ui/icons';
 import DirectChatPage from './Chats';
-<<<<<<< HEAD
 import Menu from './Menu'
-=======
 import {Link} from 'react-router-dom'
 import axios from 'axios';
->>>>>>> c7e5da606214c573054f3ada33547eff4a9eeee9
 
 
 // Sign out anv av en redirect.

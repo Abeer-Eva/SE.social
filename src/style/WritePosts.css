@@ -1,8 +1,8 @@
  .messagesender{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     text-align: start;
     width: 90%;
     height: 89px;
@@ -22,6 +22,16 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.btnArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: end;
+    height: 100%;
+}
+
     .sendBtn{
     display: flex;
     justify-content: center;
