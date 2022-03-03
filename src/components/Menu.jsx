@@ -8,8 +8,10 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import GetUsers from './getUser';
+import DirectChatPage from './Chats'
 const Menu = () => {
-  const [value, setValue] = React.useState('recents');
+  const pathname = window.location.pathname
+  const [value, setValue] = React.useState('pathname');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,17 +29,20 @@ const Menu = () => {
         value="Videos"
         icon={<PlayCircleOutlineOutlinedIcon />}
       />
-      <BottomNavigationAction onClick={()=>GetUsers()}
+      <Link to="getusers">
+      <BottomNavigationAction 
         label="Contacts"
         value="Contacts"
         icon={<PersonOutlineOutlinedIcon />}
-        onClick={() => <Link to={{pathname: 'getuser'}}></Link>}
-      />
-      <BottomNavigationAction
+     
+      /></Link>
+      <Link to="chat">
+      <BottomNavigationAction onClick={()=> DirectChatPage()}
         label="Chat"
         value="Chat"
         icon={<ForumOutlinedIcon />}
-      />
+     
+      /></Link>
       <BottomNavigationAction
         label="Notifications"
         value="Notifications"

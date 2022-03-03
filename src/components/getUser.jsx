@@ -4,6 +4,8 @@ import { auth, db } from "./firebase";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
+import { Chat } from '@material-ui/icons';
+import DirectChatPage from './Chats';
 
 
 
@@ -35,13 +37,21 @@ const GetUsers = () =>{
                     names.splice(names.indexOf(name.userName), 1)
                 }}
                 ))
-            
+          // create users collection for chats    
+//       const CreateUser= (name)=>{
+
+//        db.collection('postData').doc(name.userName).collection('chatList').add({
+//        password: this.password,
+//        name: this.name
+//   }) 
+
+// } 
     return (
         <div  >
             <div className='UsersList'>
               {names.map(users =>(
                      <section key={users.id} className="user-card">
-                     <h3>{users}</h3>
+                     <h3 onclick={()=>DirectChatPage()}>{users}</h3>
                     
                 </section>))
               }

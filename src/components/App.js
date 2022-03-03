@@ -7,6 +7,7 @@ import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
 import SignOut from "./SignOut";
 import GetUsers from "./getUser";
+import DirectChatPage from "./Chats";
 
 function App() {
   
@@ -22,7 +23,8 @@ function App() {
        <Routes>
              <Route path="/" element={user ? < Navigate to='post' /> : <SignIn/>} /> {/*om användare finns så byt sida till post annars stanna på login-sidan */}
             <Route path="post" element={user ? <PostPage/> : < Navigate to='/' />  } /> 
-            <Route path="getusers" element={<GetUsers/>}/>
+            <Route path="post/getusers" element={<GetUsers/> }/>
+            <Route path="post/chat" element={<DirectChatPage/>}/>
          
       </Routes>
       </AuthProvider>
