@@ -6,7 +6,6 @@ import {auth} from '../components/firebase'
 
 
 
-
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
 
