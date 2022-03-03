@@ -23,17 +23,17 @@ const SignIn = () =>{
 
         }).catch(error => alert(error.message))
          }
-         const SignInWithFb = () => {
-            signInWithPopup(auth, FBprovider)
-            .then(result =>{
+        //  const SignInWithFb = () => {
+            // signInWithPopup(auth, )
+            // .then(result =>{
                 
-               dispatch ({
-                   type: actionTypes.SET_USER,
-                   user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
-               })
+            //    dispatch ({
+            //        type: actionTypes.SET_USER,
+            //        user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
+            //    })
     
-            }).catch(error => alert(error.message))
-             }
+            // }).catch(error => alert(error.message))
+            //  }
         
 //  console.log(auth);
 // console.log(provider);
@@ -46,7 +46,7 @@ const SignIn = () =>{
                 </div>
                 <br/>
                 <br/>
-                <div className='login-button  facebook' onClick={SignInWithFb}>
+                <div className='login-button  facebook' onClick={SignInFirebase}>
                     <FacebookOutlined/> SIgn in with facebook
                 </div>
             </div>
