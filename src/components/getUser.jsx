@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import 'firebase/app';
+import '../style/getUsers.css'
 import { auth, db } from "./firebase";
 import { useStateValue } from './stateProvider';
 import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
 import { Chat } from '@material-ui/icons';
 import DirectChatPage from './Chats';
+import Menu from './Menu'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 
@@ -51,14 +53,14 @@ const GetUsers = () =>{
     return (
         <div  >
             <div className='UsersList'>
+                <h1>Användare online</h1>
               {names.map(users =>(
                      <Link key={users.id} className="user-card"  to="/post/chat">
                      <h3>{users}</h3>
-                    
                 </Link>))
               }
-                
             </div>
+            <Menu/>
         </div>
     );
   

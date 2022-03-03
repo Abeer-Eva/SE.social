@@ -1,20 +1,39 @@
-.App {
-    background-color: aliceblue;
-    align-items:center;
-}
-#login-page{
-    background-color: aliceblue;
-}
-.header{
-    width:100%;    
-    height: 80px;
-    left: 0px;
-    top: 0px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 20px rgba(196, 196, 196, 0.31);
-    }
-/* .meny{
-    position:fixed;
-    top:610px;
-}     */
+/* Global */
 
+* {
+    font-family: 'Martel Sans', sans-serif;
+  }
+  
+  html{
+    background-color: #f3f2f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .App{
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    text-align: start;
+  }
+
+  .logOut-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: start;
+  }
+  
+  

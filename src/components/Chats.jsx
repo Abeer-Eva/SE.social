@@ -11,7 +11,6 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { StateContext } from './stateProvider'
 
-
 const DirectChatPage = () => {
 	const [user, setUser]= useState('')
 	// const history = useNavigate();
