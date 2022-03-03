@@ -7,7 +7,7 @@ import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineO
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import GetUsers from './getUser';
+import GetUsers from './GetUser';
 import DirectChatPage from './Chats'
 import PostPage from './PostPage';
 const Menu = () => {

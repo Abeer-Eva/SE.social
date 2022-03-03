@@ -7,7 +7,12 @@ import { actionTypes } from './reducer';
 import { collection, getDocs } from "firebase/firestore";
 import { Chat } from '@material-ui/icons';
 import DirectChatPage from './Chats';
+<<<<<<< HEAD
 import Menu from './Menu'
+=======
+import {Link} from 'react-router-dom'
+import axios from 'axios';
+>>>>>>> c7e5da606214c573054f3ada33547eff4a9eeee9
 
 
 // Sign out anv av en redirect.
@@ -36,8 +41,9 @@ const GetUsers = () =>{
                 }
                 else{
                     names.splice(names.indexOf(name.userName), 1)
-                }}
-                ))
+                }}))
+              
+                
           // create users collection for chats    
 //       const CreateUser= (name)=>{
 
@@ -52,11 +58,10 @@ const GetUsers = () =>{
             <div className='UsersList'>
                 <h1>Användare online</h1>
               {names.map(users =>(
-                     <section key={users.id} className="user-card">
-                        <h3 onclick={()=>DirectChatPage()}>{users}</h3>
-                </section>))
+                     <Link key={users.id} className="user-card"  to="/post/chat">
+                     <h3>{users}</h3>
+                </Link>))
               }
-                
             </div>
             <Menu/>
         </div>
