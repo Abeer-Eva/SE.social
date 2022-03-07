@@ -21,17 +21,17 @@ const DirectChatPage = () => {
 	// 	)
 	// }
     
-	// function getOrCreateUser(callback) {
-    //     axios.put(
-    //         'https://api.chatengine.io/users/',
-    //         {username: [username]},
+	function getOrCreateUser(callback) {
+        axios.put(
+            'https://api.chatengine.io/users/',
+            {username: [username]},
 
-    //         {headers: {"Private-Key": process.env.projectID}}
-    //     )
-    //     .then(r => callback(r.data))
-    //     .catch(e => console.log('Get or create user error', e))
+            {headers: {"Private-Key": process.env.projectID}}
+        )
+        .then(r => callback(r.data))
+        .catch(e => console.log('Get or create user error', e))
 
-	// 	}
+		}
 	// function renderChatForm(creds) {
 	// 	return (
 	// 		<div>
@@ -53,8 +53,8 @@ return(
            </div>
       </div>
         <ChatEngine
-		userName=''
-		userSecret=''
+		userName='Eva'
+		userSecret='Abeer1987'
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
