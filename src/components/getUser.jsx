@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'firebase/app';
+import '../App.css'
 import '../style/getUsers.css'
 import { auth, db } from "./firebase";
 import { useStateValue } from './stateProvider';
@@ -10,6 +11,7 @@ import DirectChatPage from './Chats';
 import Menu from './Menu'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
+import SignOut from './SignOut';
 
 
 // Sign out anv av en redirect.
@@ -51,17 +53,22 @@ const GetUsers = () =>{
 
 // } 
     return (
-        <div  >
-            <div className='UsersList'>
+        <section className='getUsersPage' >
+            <section className='header'>
+                <SignOut />
+            </section>
+            <section className='UsersList'>
                 <h1>Användare online</h1>
               {names.map(users =>(
                      <Link key={users.id} className="user-card"  to="/post/chat">
                      <h3>{users}</h3>
                 </Link>))
               }
-            </div>
-            <Menu/>
-        </div>
+            </section>
+            <section className='menuSection'>
+                <Menu />
+            </section>
+        </section>
     );
   
 }

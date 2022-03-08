@@ -23,27 +23,27 @@ const PostPage = () =>{
 
     return( <>
         <section className='Full-post-page'>
-        <section className='header'>
-            <SignOut />
-        </section>
-        <section className='postSection'>
-            <WritePost />
-            {posts.map((post => (
-               <Post
-               key={post.key}
-               id={post.id} 
-               profilePic={post.profilePic}
-               message={post.message}
-               timeStamp={post.timeStamp}
-               username={post.userName}
-               image={post.image}
-               like={post.like}
-               /> 
-            )))}
-        </section>
-           <section className='menuSection'>
-              <Menu/> 
-           </section>
+            <section className='header'>
+                <SignOut />
+            </section>
+            <section className='postSection'>
+                <WritePost />
+                {posts.map((post => (
+                <Post
+                key={post.key}
+                id={post.id} 
+                profilePic={post.profilePic}
+                message={post.message}
+                timeStamp={post.timeStamp}
+                username={post.userName}
+                image={post.image}
+                like={post.like}
+                /> 
+                )))}
+            </section>
+            <section className='menuSection'>
+                <Menu/> 
+            </section>
               
         </section>
         

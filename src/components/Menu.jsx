@@ -22,7 +22,13 @@ const Menu = () => {
   
   <div className='meny'>
     <BottomNavigation sx={{ bottom: 0, left: 0, right: 0,
-    padding: "1em 4em 0", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }} value={value} onChange={handleChange}>
+    padding: "2% 5% 2% 5%", display: "flex", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center",
+    "& .MuiBottomNavigation-root .css-go9372-MuiBottomNavigation-root, svg": {
+      color: "black",
+      width: '1em'
+    }
+
+    }} value={value} onChange={handleChange}>
       <Link to="/">
         <BottomNavigationAction
           sx={{margin: "unset", padding: "unset"}}
