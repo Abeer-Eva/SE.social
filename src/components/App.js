@@ -5,7 +5,6 @@ import PostPage from './PostPage'
 import '../App.css'
 import SignIn from "./SignIn";
 import { useStateValue } from "./stateProvider";
-import SignOut from "./SignOut";
 import GetUsers from "./getUser";
 import DirectChatPage from "./Chats";
 
@@ -16,8 +15,6 @@ function App() {
     
  
     <div className='App' style={{ fontFamily: 'Avenir' }}>
-      <div className='header'><p>Logo</p>
-      <SignOut /></div>
       <BrowserRouter>
       <AuthProvider> 
        <Routes>

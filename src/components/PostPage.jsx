@@ -5,6 +5,7 @@ import Post from './Post'
 import WritePost from './WritePost'
 import { collection, getDocs } from 'firebase/firestore'
 import {db} from './firebase'
+import SignOut from './SignOut'
 
 const PostPage = () =>{
 
@@ -20,9 +21,13 @@ const PostPage = () =>{
     };
     getPosts();
 
-    return(
+    return( <>
         <section className='Full-post-page'>
-           <WritePost />
+        <section className='header'>
+            <SignOut />
+        </section>
+        <section className='postSection'>
+            <WritePost />
             {posts.map((post => (
                <Post
                key={post.key}
@@ -35,9 +40,14 @@ const PostPage = () =>{
                like={post.like}
                /> 
             )))}
-           <Menu/>   
+        </section>
+           <section className='menuSection'>
+              <Menu/> 
+           </section>
+              
         </section>
         
+       </>
     )
 }
 

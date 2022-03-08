@@ -36,38 +36,34 @@ const likeIt = async () =>{
 
   return (
     <section className='post'>
-       
-            <section className='post_topinfo'>
-            <CardHeader
+      <section className='post_topinfo'>
+        <CardHeader
         avatar={
           <Avatar src={profilePic} aria-label="recipe">
-          
           </Avatar>
         }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
-        }
-        title={username}
-        subheader={date}
-      />
-            </section>
-        
+          }
+          title={username}
+          subheader={date}
+          />
+        </section>
         <section className='post_bottom'>
         <CardContent>
-            <Typography paragraph  variant="body2" className='message'>{message}</Typography>
-            </CardContent>
-            <CardMedia
-              component="img" src={image} alt="" className='post_image'/>
-            <div className='socials'>
-                    <IconButton  className='like' onClick={() => likeIt()}> <FavoriteBorderOutlinedIcon style={{color: "#3b5998", height: "1em", width: "1em"}}/> {like} </IconButton > 
-                    <IconButton aria-label="share" style={{color: "#3b5998", height: "1em", width: "1em"}}>
-          <ShareIcon />
-        </IconButton>
-                    </div> 
-            </section>
-        
+          <Typography sx={{margin: "0 0 0 2em"}} paragraph  variant="body2" className='message'>{message}</Typography>
+          </CardContent>
+          <CardMedia
+            component="img" src={image} alt="" className='post_image'/>
+          <div className='socials'>
+            <IconButton  className='like' onClick={() => likeIt()}> <FavoriteBorderOutlinedIcon style={{color: "#3b5998", height: "1em", width: "1em"}}/> {like} </IconButton > 
+            <IconButton aria-label="share" style={{color: "#3b5998", height: "1em", width: "1em"}}>
+            <ShareIcon />
+            </IconButton>
+        </div> 
+      </section>   
     </section>
   )
 }
