@@ -17,7 +17,6 @@ const SignOut = () =>{
     const SignOutFirebase = () => {
         signOut(auth)
     //    .then(() => {
-       console.log('logged out');
         dispatch ({
             type: actionTypes.SET_USER,
             user: '', //pushar svaret in till actiontypes användardata
@@ -28,13 +27,12 @@ const SignOut = () =>{
     // });
          }
         
-//  console.log(auth);
-// console.log(provider);
     return (
         <div id="logOut-page">
             <div id="logOut-card">
                 < Button className="logout" onClick={()=>SignOutFirebase
                 ()}><SignpostOutlined/></Button>
+                <p>logo</p>
             </div>
         </div>
     );

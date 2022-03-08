@@ -18,40 +18,49 @@ const Menu = () => {
     setValue(newValue);
   };
 
-  return (<div className='meny'>
-    <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
-    <Link to="/">
+  return (
+  
+  <div className='meny'>
+    <BottomNavigation sx={{ bottom: 0, left: 0, right: 0,
+    padding: "1em 4em 0", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }} value={value} onChange={handleChange}>
+      <Link to="/">
+        <BottomNavigationAction
+          sx={{margin: "unset", padding: "unset"}}
+          label="Home"
+          value="home"
+          icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}
+        />
+      </Link>
       <BottomNavigationAction
-        label="Home"
-        value="home"
-        icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}
-      /></Link>
-      <BottomNavigationAction
+        sx={{margin: "unset", padding: "unset"}}
         label="Videos"
         value="Videos"
         icon={<PlayCircleOutlineOutlinedIcon />}
       />
       <Link to="getusers">
-      <BottomNavigationAction 
-        label="Contacts"
-        value="Contacts"
-        icon={<PersonOutlineOutlinedIcon />}
-     
-      /></Link>
+        <BottomNavigationAction 
+          sx={{margin: "unset", padding: "unset"}}
+          label="Contacts"
+          value="Contacts"
+          icon={<PersonOutlineOutlinedIcon />}
+        />
+      </Link>
       <Link to="chat">
-      <BottomNavigationAction onClick={()=> DirectChatPage()}
-        label="Chat"
-        value="Chat"
-        icon={<ForumOutlinedIcon />}
-     
-      /></Link>
+        <BottomNavigationAction onClick={()=> DirectChatPage()}
+          sx={{margin: "unset", padding: "unset"}}
+          label="Chat"
+          value="Chat"
+          icon={<ForumOutlinedIcon />}
+        />
+      </Link>
       <BottomNavigationAction
+        sx={{margin: "unset", padding: "unset"}}
         label="Notifications"
         value="Notifications"
         icon={<NotificationsNoneOutlinedIcon/>}
       />
     </BottomNavigation>
-    </div>
+  </div>
   );
 }
 
