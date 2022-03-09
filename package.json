@@ -2,7 +2,9 @@
   "name": "socialmedia",
   "version": "0.1.0",
   "private": true,
-
+  "engines": {
+    "node": "17.x"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.7.1",
