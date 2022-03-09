@@ -53,8 +53,13 @@ return(
            </div>
       </div>
         <ChatEngine
+<<<<<<< HEAD
 		userName='Eva'
 		userSecret='Abeer1987'
+=======
+		userName='Sarah'
+		userSecret='1993Holly'
+>>>>>>> fb7ef0268da92119b505d7275dc23862b47c7377
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}

@@ -1,10 +1,40 @@
-.UsersList{
+.getUsersPage{
+    max-width: 80%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.UsersList{
+    position: absolute;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: start;
-    padding: 2em 0;
+    padding: 2em 3em;
+    background-color: white;
+    border-radius: 22px;
+}
+
+.menuSection{
+     position: fixed;
+     bottom: 0;
+     right: 0;
+     left: 0;
+     background-color: white;
+ }
+
+ .menu{
+    width: 100%;
+    position: fixed;
+   left: 0; 
+   right: 0; 
+   margin-left: auto; 
+   margin-right: auto;
 }
 
 a{
