@@ -9,6 +9,7 @@ import {
 } from 'react-chat-engine'
 import axios from 'axios'
 import { AuthProvider } from '../context/AuthContext'
+import '../style/chat.css'
 
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
