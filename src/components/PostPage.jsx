@@ -5,6 +5,7 @@ import Post from './Post'
 import WritePost from './WritePost'
 import { collection, getDocs } from 'firebase/firestore'
 import {db} from './firebase'
+import SignOut from './SignOut'
 
 const PostPage = () =>{
 
@@ -20,24 +21,33 @@ const PostPage = () =>{
     };
     getPosts();
 
-    return(
+    return( <>
         <section className='Full-post-page'>
-           <WritePost />
-            {posts.map((post => (
-               <Post
-               key={post.key}
-               id={post.id} 
-               profilePic={post.profilePic}
-               message={post.message}
-               timeStamp={post.timeStamp}
-               username={post.userName}
-               image={post.image}
-               like={post.like}
-               /> 
-            )))}
-           <Menu/>   
+            <section className='header'>
+                <SignOut />
+            </section>
+            <section className='postSection'>
+                <WritePost />
+                {posts.map((post => (
+                <Post
+                key={post.key}
+                id={post.id} 
+                profilePic={post.profilePic}
+                message={post.message}
+                timeStamp={post.timeStamp}
+                username={post.userName}
+                image={post.image}
+                like={post.like}
+                /> 
+                )))}
+            </section>
+            <section className='menuSection'>
+                <Menu/> 
+            </section>
+              
         </section>
         
+       </>
     )
 }
 
