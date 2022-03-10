@@ -1,6 +1,6 @@
 import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { 
     ChatEngine, 
     ChatList, ChatCard, NewChatForm,
@@ -8,40 +8,32 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
+
+import { useNavigate } from 'react-router-dom'
+import { StateContext } from './stateProvider'
 import { AuthProvider } from '../context/AuthContext'
 import '../style/chat.css'
 
+
 const DirectChatPage = () => {
-	const [username, setUsername] = useState('')
-	
-	// function createDirectChat(creds) {
-	// 	getOrCreateChat(
-	// 		creds,
-	// 		{ is_direct_chat: true, usernames: [username] },
-	// 		() => setUsername('')
-	// 	)
-	// }
-    
-	// function getOrCreateUser(callback) {
-    //     axios.put(
-    //         'https://api.chatengine.io/users/',
-    //         {username: [username]},
+	const [user, setUser]= useState('')
+	// const history = useNavigate();
 
-    //         {headers: {"Private-Key": process.env.projectID}}
-    //     )
-    //     .then(r => callback(r.data))
-    //     .catch(e => console.log('Get or create user error', e))
+    // useEffect(() => {
+       
+	// 	//hämta users uppgift
+        axios.get('https://api.chatengine.io/users/me/', {
+           headers: {
+           'Project-ID': 'b29c0382-07ab-44d3-a3e1-86606070fac5',
+                 'User-Name': user.email,
+                'User-Secret': user.uid
+          }
+        })
+            
+           
 
-	// 	}
-	// function renderChatForm(creds) {
-	// 	return (
-	// 		<div>
-			
-	// 		</div>
-	// 	)
-	// }
-
-
+		
+ 
 return(
 
     <div  className = "chats-page">
@@ -49,7 +41,7 @@ return(
          <div className= "logo-tab">
                <SmileFilled/>  SE.social
           </div>
-          <div onClick={signOut} className= "logout-tab">
+          <div onClick={signOut} className="logout-tab">
               <LoginOutlined/> Logout
            </div>
       </div>
