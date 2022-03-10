@@ -23,6 +23,17 @@ const SignIn = () =>{
 
         }).catch(error => alert(error.message))
          }
+        //  const SignInWithFb = () => {
+            // signInWithPopup(auth, )
+            // .then(result =>{
+                
+            //    dispatch ({
+            //        type: actionTypes.SET_USER,
+            //        user: result.user, //pushar svaret vi får när man loggar in, in till actiontypes användardata
+            //    })
+    
+            // }).catch(error => alert(error.message))
+            //  }
         
     return (
         <div id="login-page ">

@@ -1,6 +1,6 @@
 import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { 
     ChatEngine, 
     ChatList, ChatCard, NewChatForm,
@@ -8,7 +8,6 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
-import { AuthProvider } from '../context/AuthContext'
 
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
@@ -41,6 +40,12 @@ const DirectChatPage = () => {
 	// }
 
 
+
+            
+           
+
+		
+ 
 return(
 
     <div  className = "chats-page">
@@ -48,18 +53,13 @@ return(
          <div className= "logo-tab">
                <SmileFilled/>  SE.social
           </div>
-          <div onClick={signOut} className= "logout-tab">
+          <div onClick={signOut} className="logout-tab">
               <LoginOutlined/> Logout
            </div>
       </div>
         <ChatEngine
-<<<<<<< HEAD
-		userName='Eva'
-		userSecret='Abeer1987'
-=======
 		userName='Sarah'
 		userSecret='1993Holly'
->>>>>>> fb7ef0268da92119b505d7275dc23862b47c7377
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
@@ -82,4 +82,4 @@ return(
       )
 
 }
-export default DirectChatPage;
+export default DirectChatPage    
