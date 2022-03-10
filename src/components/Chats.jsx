@@ -8,8 +8,12 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
+
 import { useNavigate } from 'react-router-dom'
 import { StateContext } from './stateProvider'
+import { AuthProvider } from '../context/AuthContext'
+import '../style/chat.css'
+
 
 const DirectChatPage = () => {
 	const [user, setUser]= useState('')

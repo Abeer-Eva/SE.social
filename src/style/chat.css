@@ -1,4 +1,4 @@
-/* Chats Page */
+/* Chats Page
   
   .chats-page {
     position: absolute;
@@ -8,12 +8,7 @@
     height: 100vh;
   }
   
-  .nav-bar {
-    width: 100%;
-    height: 66px;
-    background-color: #002766;
-  }
-  
+
   .logo-tab {
     position: absolute;
     left: 22px;
@@ -33,6 +28,44 @@
   
   ::-webkit-scrollbar {
     width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
+    /* background: transparent; /* Optional: just make scrollbar invisible */
+  /* }  */
+
+  body{
+    margin: unset;
+  }
+  .nav-bar {
+    width: 100%;
+    height: 66px;
+    background-color: #fff;
   }
   
+  .ce-chat-feed-container{
+    background-color: #f3f2f9 !important;
+    width: unset !important;
+    padding: 2em !important;
+  }
+
+  .ce-chat-title-text{
+    color: black !important;
+  }
+
+  .ce-message-bubble {
+    padding: .75em 1em;
+  }
+
+  .ce-my-message-bubble {
+    background-color: #E7CFF9 !important;
+  }
+
+  .ce-their-message-bubble{
+    background-color: white !important;
+  }
+
+  .ce_message{
+    color: black !important;
+  }
+
+  .ce-chat-engine{
+    font-family: 'Martel Sans', sans-serif !important;
+  }
