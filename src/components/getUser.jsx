@@ -60,7 +60,7 @@ const GetUsers = () =>{
             <section className='UsersList'>
                 <h1>Användare online</h1>
               {names.map(users =>(
-                     <Link key={users.id} className="user-card"  to="/post/chat">
+                     <Link key={users.id} name={users} className="user-card"  to="/post/chat">
                      <h3>{users}</h3>
                 </Link>))
               }
