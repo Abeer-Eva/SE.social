@@ -1,6 +1,6 @@
 import { LoginOutlined, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { 
     ChatEngine, 
     ChatList, ChatCard, NewChatForm,
@@ -8,13 +8,34 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
+
+import { useNavigate } from 'react-router-dom'
+import { StateContext } from './stateProvider'
 import { AuthProvider } from '../context/AuthContext'
 import '../style/chat.css'
 import SignOut from './SignOut'
 
+
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
+	const [user, setUser]= useState('')
+	// const history = useNavigate();
 
+    // useEffect(() => {
+       
+	// 	//hämta users uppgift
+        axios.get('https://api.chatengine.io/users/me/', {
+           headers: {
+           'Project-ID': 'b29c0382-07ab-44d3-a3e1-86606070fac5',
+                 'User-Name': user.email,
+                'User-Secret': user.uid
+          }
+        })
+            
+           
+
+		
+ 
 return(
 
     <div  className = "chats-page">
