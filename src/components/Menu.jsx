@@ -31,7 +31,7 @@ const Menu = () => {
     }} value={value} onChange={handleChange}>
       <Link to="/">
         <BottomNavigationAction
-          sx={{margin: "unset", padding: "unset"}}
+          sx={{margin: "unset", padding: "unset", }}
           label="Home"
           value="home"
           icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}

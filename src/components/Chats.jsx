@@ -10,54 +10,23 @@ import {
 import axios from 'axios'
 import { AuthProvider } from '../context/AuthContext'
 import '../style/chat.css'
+import SignOut from './SignOut'
 
 const DirectChatPage = () => {
 	const [username, setUsername] = useState('')
-	
-	// function createDirectChat(creds) {
-	// 	getOrCreateChat(
-	// 		creds,
-	// 		{ is_direct_chat: true, usernames: [username] },
-	// 		() => setUsername('')
-	// 	)
-	// }
-    
-	// function getOrCreateUser(callback) {
-    //     axios.put(
-    //         'https://api.chatengine.io/users/',
-    //         {username: [username]},
-
-    //         {headers: {"Private-Key": process.env.projectID}}
-    //     )
-    //     .then(r => callback(r.data))
-    //     .catch(e => console.log('Get or create user error', e))
-
-	// 	}
-	// function renderChatForm(creds) {
-	// 	return (
-	// 		<div>
-			
-	// 		</div>
-	// 	)
-	// }
-
 
 return(
 
     <div  className = "chats-page">
     <div  className = "nav-bar">
-         <div className= "logo-tab">
-               <SmileFilled/>  SE.social
-          </div>
-          <div onClick={signOut} className= "logout-tab">
-              <LoginOutlined/> Logout
-           </div>
+		<section className= "logout-tab">
+              <SignOut />
+           </section>
       </div>
         <ChatEngine
 		userName='Sarah'
 		userSecret='1993Holly'
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
-		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
 		renderChatCard={(chat, index) => <ChatCard key={`${index}`} chat={chat} />}
 		renderNewChatForm={(creds) => <NewChatForm creds={creds} />} 
