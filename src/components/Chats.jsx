@@ -16,7 +16,7 @@ import '../style/chat.css'
 import SignOut from './SignOut'
 
 
-const DirectChatPage = () => {
+const DirectChatPage = (name) => {
 	const [username, setUsername] = useState('')
 	const [user, setUser]= useState('')
 	// const history = useNavigate();
