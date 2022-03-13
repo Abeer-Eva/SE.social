@@ -12,13 +12,19 @@ import { doc, getDoc } from "firebase/firestore";
 import { useStateValue } from "./stateProvider";
 import {db } from "./firebase"
 import GetUsers from './getUser'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import SignOut from './SignOut'
 
 const DirectChatPage =  () => {
 const history=useNavigate();
-const {user} =useAuth();
+const {user, chats} =useAuth();
 const[loading, setLoading]=useState(false);
+
+
+
+
+const [hasSetLink, setLink] = useState(false)
 
 const getFile=async(url)=>{
 	const response = await fetch (url);
@@ -51,16 +57,18 @@ axios.get('https://api.chatengine.io/users/me/',{
 		.catch((error)=>console.log(error))
 	})
 })
-},[user,history])
 
-	if(!user||loading ) return 'Loading ....'
+
+},[user,history,chats])
+
+	// if(!user||loading ) return 'Loading ....'
 
 return(
 
     <div  className = "chats-page">
     <div  className = "nav-bar">
 		<section className= "logout-tab">
-              <SignOut />
+              <SignOut/>
            </section>
       </div>
         <ChatEngine

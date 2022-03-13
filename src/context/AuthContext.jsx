@@ -12,9 +12,12 @@ const AuthContext = React.createContext()
 export const useAuth = () => useContext(AuthContext);
 
 
+
+
 export function AuthProvider({children}) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [chats, setChats]=useState(null)
   const history = useNavigate();
   
 //  function signup(auth,email, password) {
@@ -46,6 +49,7 @@ export function AuthProvider({children}) {
     onAuthStateChanged (auth, user => {
       setUser(user);
       setLoading(false);
+      setChats(chats);
       
       
 
@@ -57,6 +61,7 @@ export function AuthProvider({children}) {
   }, [user, history])
   const value = {
     user,
+    chats
     // login,
     //signup,
     // logout,
