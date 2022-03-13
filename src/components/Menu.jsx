@@ -4,7 +4,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import GetUsers from './getUser';
@@ -31,7 +31,7 @@ const Menu = () => {
     }} value={value} onChange={handleChange}>
       <Link to="/">
         <BottomNavigationAction
-          sx={{margin: "unset", padding: "unset"}}
+          sx={{margin: "unset", padding: "unset", }}
           label="Home"
           value="home"
           icon={<HomeOutlinedIcon onClick={()=> PostPage()} />}
@@ -40,29 +40,29 @@ const Menu = () => {
       <BottomNavigationAction
         sx={{margin: "unset", padding: "unset"}}
         label="Videos"
-        value="Videos"
+        value="videos"
         icon={<PlayCircleOutlineOutlinedIcon />}
       />
-      <Link to="getusers">
+      <Link to="/post/getusers">
         <BottomNavigationAction 
           sx={{margin: "unset", padding: "unset"}}
           label="Contacts"
-          value="Contacts"
+          value="contacts"
           icon={<PersonOutlineOutlinedIcon />}
         />
       </Link>
-      <Link to="chat">
+      <Link to="/post/chat">
         <BottomNavigationAction onClick={()=> DirectChatPage()}
           sx={{margin: "unset", padding: "unset"}}
           label="Chat"
-          value="Chat"
+          value="chat"
           icon={<ForumOutlinedIcon />}
         />
       </Link>
       <BottomNavigationAction
         sx={{margin: "unset", padding: "unset"}}
         label="Notifications"
-        value="Notifications"
+        value="notifications"
         icon={<NotificationsNoneOutlinedIcon/>}
       />
     </BottomNavigation>

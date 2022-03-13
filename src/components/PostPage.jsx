@@ -29,8 +29,8 @@ const PostPage = () =>{
             <section className='postSection'>
                 <WritePost />
                 {posts.map((post => (
+                    <section className='postWrap' key={post.key}>
                 <Post
-                key={post.key}
                 id={post.id} 
                 profilePic={post.profilePic}
                 message={post.message}
@@ -39,7 +39,7 @@ const PostPage = () =>{
                 image={post.image}
                 like={post.like}
                 /> 
-                )))}
+                </section>)))}
             </section>
             <section className='menuSection'>
                 <Menu/> 

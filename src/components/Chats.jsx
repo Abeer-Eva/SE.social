@@ -59,18 +59,14 @@ return(
 
     <div  className = "chats-page">
     <div  className = "nav-bar">
-         <div className= "logo-tab">
-               <SmileFilled/>  SE.social
-          </div>
-          <div onClick={signOut} className="logout-tab">
-              <LoginOutlined/> Logout
-           </div>
+		<section className= "logout-tab">
+              <SignOut />
+           </section>
       </div>
         <ChatEngine
 	    userName={user.email}
 		userSecret={user.uid}
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
-		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
 		renderChatCard={(chat, index) => <ChatCard key={`${index}`} chat={chat} />}
 		renderNewChatForm={(creds) => <NewChatForm creds={creds} />}
