@@ -43,7 +43,7 @@ const Menu = () => {
         value="Videos"
         icon={<PlayCircleOutlineOutlinedIcon />}
       />
-      <Link to="getusers">
+      <Link to="/post/getusers">
         <BottomNavigationAction 
           sx={{margin: "unset", padding: "unset"}}
           label="Contacts"
@@ -51,7 +51,7 @@ const Menu = () => {
           icon={<PersonOutlineOutlinedIcon />}
         />
       </Link>
-      <Link to="chat">
+      <Link to="/post/chat">
         <BottomNavigationAction onClick={()=> DirectChatPage()}
           sx={{margin: "unset", padding: "unset"}}
           label="Chat"
