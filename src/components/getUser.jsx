@@ -11,13 +11,15 @@ import DirectChatPage from './Chats';
 import Menu from './Menu'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-import SignOut from './SignOut';
+import SignOut from './SignOut'; 
+
 
 
 // Sign out anv av en redirect.
 const GetUsers = () =>{
     const [list ,SetList]= useState([])
     const names = []
+    
     //  const [state, dispatch] = useStateValue() //låter oss ta information från datan
 
         const getAllUsers = async () => {
@@ -37,6 +39,7 @@ const GetUsers = () =>{
         const nameIt = list.map(( name =>
                 {if(!names.includes(name.userName)) {
                   names.push(name.userName)  
+                
                 }
                 else{
                     names.splice(names.indexOf(name.userName), 1)
@@ -50,7 +53,7 @@ const GetUsers = () =>{
 //        password: this.password,
 //        name: this.name
 //   }) 
-
+  
 // } 
     return (
         <section className='getUsersPage' >
@@ -60,7 +63,7 @@ const GetUsers = () =>{
             <section className='UsersList'>
                 <h1>Användare online</h1>
               {names.map(users =>(
-                     <Link key={users.id} className="user-card"  to="/post/chat">
+                     <Link key={users.id}    className="user-card"  to="/post/chat">
                      <h3>{users}</h3>
                 </Link>))
               }

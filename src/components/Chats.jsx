@@ -1,51 +1,60 @@
-import { LoginOutlined, SmileFilled } from '@ant-design/icons'
+import { LoginOutlined, PropertySafetyFilled, SmileFilled } from '@ant-design/icons'
 import { signOut } from 'firebase/auth'
 import React, { useContext, useEffect, useState } from 'react'
-import { 
-    ChatEngine, 
+import {
+    ChatEngine,
     ChatList, ChatCard, NewChatForm,
     ChatFeed, ChatHeader, IceBreaker, MessageBubble, IsTyping, ConnectionBar, NewMessageForm,
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
+import { doc, getDoc } from "firebase/firestore";
+import { useStateValue } from "./stateProvider";
+import {db } from "./firebase"
+import GetUsers from './getUser'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
-const DirectChatPage = () => {
-	const [username, setUsername] = useState('')
-	
-	// function createDirectChat(creds) {
-	// 	getOrCreateChat(
-	// 		creds,
-	// 		{ is_direct_chat: true, usernames: [username] },
-	// 		() => setUsername('')
-	// 	)
-	// }
-    
-	function getOrCreateUser(callback) {
-        axios.put(
-            'https://api.chatengine.io/users/',
-            {username: [username]},
+const DirectChatPage =  () => {
+const history=useNavigate();
+const {user} =useAuth();
+const[loading, setLoading]=useState(false);
 
-            {headers: {"Private-Key": process.env.projectID}}
-        )
-        .then(r => callback(r.data))
-        .catch(e => console.log('Get or create user error', e))
+const getFile=async(url)=>{
+	const response = await fetch (url);
+    const data =await response.blob();
+	return new File([data],"userPhoto.jpg",{type:'image/jpeg'})
+}
 
-		}
-	// function renderChatForm(creds) {
-	// 	return (
-	// 		<div>
-			
-	// 		</div>
-	// 	)
-	// }
+useEffect(()=> {
 
+axios.get('https://api.chatengine.io/users/me/',{
+	headers:{"project-id":"b29c0382-07ab-44d3-a3e1-86606070fac5",
+	 "user-name":user.email,
+	 "user-secret":user.uid
+} 
+})
+.then(()=>{
+	setLoading(true);
+})
+.catch(()=>{
+	let formData = new FormData();
+	formData.append('email',user.email);
+	formData.append('username', user.email);
+	formData.append('secret', user.uid);
 
+	getFile(user.photoURL)
+	.then((avatar)=>{
+		formData.append('avatar',avatar,avatar.name);
+		axios.post('https://api.chatengine.io/users',formData, {headers:{"private-key":"b8a9c5dd-f0b2-4439-92f9-28214366085d"}})
+		.then(()=> setLoading(false))
+		.catch((error)=>console.log(error))
+	})
+})
+},[user,history])
 
-            
-           
+	if(!user||loading ) return 'Loading ....'
 
-		
- 
 return(
 
     <div  className = "chats-page">
@@ -58,13 +67,13 @@ return(
            </div>
       </div>
         <ChatEngine
-		userName='Sarah'
-		userSecret='1993Holly'
+	    userName={user.email}
+		userSecret={user.uid}
 		projectID='b29c0382-07ab-44d3-a3e1-86606070fac5'
 		// userName= {[username]}
 		renderChatList={(chatAppState) => <ChatList {...chatAppState} />}
 		renderChatCard={(chat, index) => <ChatCard key={`${index}`} chat={chat} />}
-		renderNewChatForm={(creds) => <NewChatForm creds={creds} />} 
+		renderNewChatForm={(creds) => <NewChatForm creds={creds} />}
 		renderChatFeed={(chatAppState) => <ChatFeed {...chatAppState} />}
 		renderChatHeader={(chat) => <ChatHeader />}
 		renderIceBreaker={(chat) => <IceBreaker />}
@@ -82,4 +91,4 @@ return(
       )
 
 }
-export default DirectChatPage    
+export default DirectChatPage

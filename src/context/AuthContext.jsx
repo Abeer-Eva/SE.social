@@ -9,18 +9,17 @@ import SignIn from "../components/SignIn";
 
 const AuthContext = React.createContext()
 
-export function useAuth() {
-  return useContext(AuthContext)
-}
+export const useAuth = () => useContext(AuthContext);
+
 
 export function AuthProvider({children}) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const history = useNavigate();
   
- function signup(auth,email, password) {
-    return createUserWithEmailAndPassword(auth, email, password)
-   }
+//  function signup(auth,email, password) {
+//     return createUserWithEmailAndPassword(auth, email, password)
+//    }
 
   //  function login(auth,email, password) {
   //   return signInWithEmailAndPassword(auth,email, password)
@@ -47,14 +46,15 @@ export function AuthProvider({children}) {
     onAuthStateChanged (auth, user => {
       setUser(user);
       setLoading(false);
-
+      
+      
 
       //****** */
     //
     })
 
    
-  }, [])
+  }, [user, history])
   const value = {
     user,
     // login,
