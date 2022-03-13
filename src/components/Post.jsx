@@ -13,7 +13,7 @@ import CardHeader from '@mui/material/CardHeader';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Avatar from '@mui/material/Avatar';
 
-const Post = ({ key, id, profilePic, message, timeStamp, username, image, like}) => {
+const Post = ({ id, profilePic, message, timeStamp, username, image, like}) => {
 
 const likeIt = async () =>{
     let x
