@@ -1,11 +1,13 @@
   body{
     margin: unset !important;
   }
+ 
   .nav-bar {
     width: 100% !important;
     background-color: rgba(255, 255, 255, 0.92) !important;
     position: absolute !important;
     z-index: 1000 !important;
+    top:0 !important;
   }
 
   .logout-tab{
@@ -15,6 +17,7 @@
     align-items: center !important;
     margin: 0 1.25em 0 !important;
     max-height: 3em !important;
+    
   }
 
   
@@ -22,7 +25,10 @@
     position: fixed !important;
     top: 48px !important;
   }
-
+ 
+  .ce-chat-list-mobile-option{
+    overflow:unset !important
+  }
   .ce-wrapper{
     max-width: 100vw !important;
   }

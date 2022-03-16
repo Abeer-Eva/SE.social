@@ -8,13 +8,10 @@ import {
     ChatSettings, ChatSettingsTop, PeopleSettings, PhotosSettings, OptionsSettings,getOrCreateChat
 } from 'react-chat-engine'
 import axios from 'axios'
-import { doc, getDoc } from "firebase/firestore";
-import { useStateValue } from "./stateProvider";
-import {db } from "./firebase"
-import GetUsers from './getUser'
 import {  useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import SignOut from './SignOut'
+import '../style/chat.css'
 
 const DirectChatPage =  () => {
 const history=useNavigate();
@@ -46,7 +43,7 @@ axios.get('https://api.chatengine.io/users/me/',{
 .catch(()=>{
 	let formData = new FormData();
 	formData.append('email',user.email);
-	formData.append('username', user.email);
+	formData.append('username', user.displayName);
 	formData.append('secret', user.uid);
 
 	getFile(user.photoURL)
@@ -58,9 +55,13 @@ axios.get('https://api.chatengine.io/users/me/',{
 	})
 })
 
-
+axios.get('https://api.chatengine.io/chats/',{
+	headers:{"project-id":"b29c0382-07ab-44d3-a3e1-86606070fac5",
+	 "user-name":user.email,
+	 "user-secret":user.uid
+} })
 },[user,history,chats])
-
+  
 	// if(!user||loading ) return 'Loading ....'
 
 return(
